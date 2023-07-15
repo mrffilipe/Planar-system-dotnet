@@ -11,22 +11,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Application\Services\" />
+    <Folder Include="src\Application\ChatMessaging\Services\" />
+    <Folder Include="src\Application\SalesManagement\Services\" />
+    <Folder Include="src\Application\UserManagement\Services\" />
     <Folder Include="src\Domain\ActivityManagement\Interfaces\" />
-    <Folder Include="src\Domain\ActivityManagement\Repositories\" />
-    <Folder Include="src\Domain\ActivityManagement\Services\" />
     <Folder Include="src\Domain\ActivityManagement\ValueObjects\" />
     <Folder Include="src\Domain\NotificationManagement\Interfaces\" />
-    <Folder Include="src\Domain\NotificationManagement\Repositories\" />
-    <Folder Include="src\Domain\NotificationManagement\Services\" />
     <Folder Include="src\Domain\ChatMessaging\Interfaces\" />
     <Folder Include="src\Domain\ChatMessaging\Repositories\" />
     <Folder Include="src\Domain\ChatMessaging\Services\" />
     <Folder Include="src\Domain\ChatMessaging\ValueObjects\" />
     <Folder Include="src\Domain\NotificationManagement\ValueObjects\" />
     <Folder Include="src\Domain\SolarEnergyManagement\Interfaces\" />
-    <Folder Include="src\Domain\SolarEnergyManagement\Repositories\" />
-    <Folder Include="src\Domain\SolarEnergyManagement\Services\" />
     <Folder Include="src\Domain\UserManagement\Enums\" />
     <Folder Include="src\Domain\UserManagement\Interfaces\" />
     <Folder Include="src\Domain\UserManagement\Repositories\" />
@@ -38,14 +34,12 @@
     <Folder Include="src\Domain\SalesManagement\Services\" />
     <Folder Include="src\Domain\AddressManagement\Interfaces\" />
     <Folder Include="src\Domain\AddressManagement\Enums\" />
-    <Folder Include="src\Domain\AddressManagement\Repositories\" />
-    <Folder Include="src\Domain\AddressManagement\Services\" />
     <Folder Include="src\Domain\CustomerManagement\Interfaces\" />
-    <Folder Include="src\Domain\CustomerManagement\Repositories\" />
-    <Folder Include="src\Domain\CustomerManagement\Services\" />
     <Folder Include="src\Domain\SalesManagement\ValueObjects\" />
     <Folder Include="src\Infra\Extensions\" />
-    <Folder Include="src\Infra\Repositories\" />
+    <Folder Include="src\Infra\Repositories\UserManagement\" />
+    <Folder Include="src\Infra\Repositories\SalesManagement\" />
+    <Folder Include="src\Infra\Repositories\ChatMessaging\" />
     <Folder Include="src\Presentation\AddressManagement\Controllers\" />
     <Folder Include="src\Presentation\AddressManagement\Filters\" />
     <Folder Include="src\Presentation\CustomerManagement\Controllers\" />
