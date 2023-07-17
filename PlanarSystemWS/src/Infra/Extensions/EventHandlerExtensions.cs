@@ -9,7 +9,11 @@ namespace PlanarSystemWS.src.Infra
         public static IServiceCollection AddEventHandlers(this IServiceCollection services)
         {
             // Event handlers
-            services.AddScoped<IEventHandler<RegisteredUserEvent>, RegisteredUserHandler>();
+            //services.AddScoped<IEventHandler<RegisteredUserEvent>, RegisteredUserHandler>(); -- verificar o porque do erro
+            services.AddSingleton<IEventHandler<RegisteredUserEvent>, RegisteredUserHandler>();
+
+            // RabbitMQ
+            services.AddSingleton<IRabbitMQService, RabbitMQService>(); // --verificar o porque do erro
 
             // Producer and consumer
             services.AddScoped(typeof(EventConsumer<>));
@@ -27,7 +31,8 @@ namespace PlanarSystemWS.src.Infra
                 foreach (var eventType in eventTypes)
                 {
                     var eventConsumerType = typeof(EventConsumer<>).MakeGenericType(eventType);
-                    var eventConsumer = (IHostedService)provider.GetRequiredService(eventConsumerType);
+                    //var eventConsumer = (IHostedService)provider.GetRequiredService(eventConsumerType); -- verificar o porque do erro
+                    var eventConsumer = (IHostedService)ActivatorUtilities.CreateInstance(provider, eventConsumerType);
                     hostedServices.Add(eventConsumer);
                 }
 

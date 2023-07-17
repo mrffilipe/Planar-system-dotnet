@@ -11,7 +11,7 @@ namespace PlanarSystemWS.src.Infra
         private readonly IConnection _connection;
         private readonly IEventHandler<TEvent> _eventHandler;
 
-        public EventConsumer(RabbitMQService rabbitMQService, IEventHandler<TEvent> eventHandler)
+        public EventConsumer(IRabbitMQService rabbitMQService, IEventHandler<TEvent> eventHandler)
         {
             _connection = rabbitMQService.CreateConnection();
             _eventHandler = eventHandler;

@@ -2,7 +2,7 @@
 
 namespace PlanarSystemWS.src.Infra;
 
-public class RabbitMQService
+public class RabbitMQService : IRabbitMQService
 {
     public IConnection CreateConnection()
     {
@@ -10,6 +10,8 @@ public class RabbitMQService
         {
             HostName = "localhost",
         };
+
+        // Exceção caso der erro na conexão CreateConnection()
 
         return factory.CreateConnection();
     }

@@ -8,7 +8,7 @@ public class EventProducer<TEvent> where TEvent : class
 {
     private readonly IConnection _connection;
 
-    public EventProducer(RabbitMQService rabbitMQService)
+    public EventProducer(IRabbitMQService rabbitMQService)
     {
         _connection = rabbitMQService.CreateConnection();
     }
