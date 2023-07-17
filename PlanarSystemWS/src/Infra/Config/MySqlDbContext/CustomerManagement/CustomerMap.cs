@@ -9,6 +9,6 @@ public class CustomerMap : BaseEntityMap<Customer>
     {
         base.Configure(builder);
 
-
+        
     }
 }

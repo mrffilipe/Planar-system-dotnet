@@ -5,6 +5,11 @@ namespace PlanarSystemWS.src.Domain.CustomerManagement;
 public class RefDocument : BaseEntity
 {
     public Document Document { get; private set; }
+    public Customer? Customer { get; private set; }
+
+    public RefDocument()
+    {
+    }
 
     public RefDocument(Document document)
     {

@@ -6,6 +6,11 @@ public class RefPhone : BaseEntity
 {
     public bool IsWhatsapp { get; private set; }
     public Phone Phone { get; private set; }
+    public Customer? Customer { get; private set; }
+
+    public RefPhone()
+    {
+    }
 
     public RefPhone(bool isWhatsapp, Phone phone)
     {

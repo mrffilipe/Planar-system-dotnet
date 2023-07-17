@@ -9,6 +9,11 @@ public class PhoneMap : BaseEntityMap<RefPhone>
     {
         base.Configure(builder);
 
+        builder.HasOne(e => e.Customer)
+            .WithOne(e => e.Phone)
+            .HasForeignKey<Customer>(e => e.PhoneId)
+            .IsRequired();
 
+        builder.OwnsOne(typeof(Phone), "Phone");
     }
 }

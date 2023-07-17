@@ -1,18 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PlanarSystemWS.src.Infra.Config.MySqlDbContext.AddressManagement;
-using PlanarSystemWS.src.Infra.Config.MySqlDbContext.CustomerManagement;
-using PlanarSystemWS.src.Infra.Config.MySqlDbContext.UserManagement;
+using PlanarSystemWS.src.Domain.AddressManagement;
+using PlanarSystemWS.src.Domain.CustomerManagement;
+using PlanarSystemWS.src.Domain.UserManagement;
 using System.Reflection;
 
 namespace PlanarSystemWS.src.Infra;
 
 public class MySqlDbContext : DbContext
 {
-    public DbSet<AddressMap> Adresses { get; set; }
-    public DbSet<CustomerMap> Customers { get; set; }
-    public DbSet<DocumentMap> Documents { get; set; }
-    public DbSet<PhoneMap> Phones { get; set; }
-    public DbSet<UserMap> Users { get; set; }
+    public DbSet<Address> Adresses { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<RefDocument> Documents { get; set; }
+    public DbSet<RefPhone> Phones { get; set; }
+    public DbSet<User> Users { get; set; }
 
     public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options)
     {
