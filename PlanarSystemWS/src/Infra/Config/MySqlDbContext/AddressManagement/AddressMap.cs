@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlanarSystemWS.src.Domain.AddressManagement;
 
 namespace PlanarSystemWS.src.Infra.Config.MySqlDbContext.AddressManagement;
 
-public class AddressMap : IEntityTypeConfiguration<RefAddress>
+public class AddressMap : BaseEntityMap<RefAddress>
 {
-    public void Configure(EntityTypeBuilder<RefAddress> builder)
+    public override void Configure(EntityTypeBuilder<RefAddress> builder)
     {
-        throw new NotImplementedException();
+        base.Configure(builder);
+
+
     }
 }
