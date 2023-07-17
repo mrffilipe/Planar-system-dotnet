@@ -1,14 +1,14 @@
-﻿using PlanarSystemWS.src.Domain.shared;
+﻿using PlanarSystemWS.src.Domain.Shared;
 using PlanarSystemWS.src.Domain.UserManagement;
 
 namespace PlanarSystemWS.src.Domain.ActivityManagement;
 
 public class Activity : BaseEntity
 {
-    public User User { get; set; }
-    public ActivityType Type { get; set; }
-    public string RelationshipId { get; set; }
-    public ActivityStatus Status { get; set; }
+    public User User { get; private set; }
+    public ActivityType Type { get; private set; }
+    public string RelationshipId { get; private set; }
+    public ActivityStatus Status { get; private set; }
 
     public Activity(
         User user,

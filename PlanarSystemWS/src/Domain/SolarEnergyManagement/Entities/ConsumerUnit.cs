@@ -1,4 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.shared;
+﻿using PlanarSystemWS.src.Domain.Shared;
 
 namespace PlanarSystemWS.src.Domain.SolarEnergyManagement;
 

@@ -1,4 +1,4 @@
-﻿namespace PlanarSystemWS.src.Domain.shared;
+﻿namespace PlanarSystemWS.src.Domain.Shared;
 
 public interface IEntity<TKey>
 {

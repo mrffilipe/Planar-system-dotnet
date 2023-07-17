@@ -1,7 +1,7 @@
 ﻿using PlanarSystemWS.src.Domain.AddressManagement;
 using PlanarSystemWS.src.Domain.CustomerManagement;
 using PlanarSystemWS.src.Domain.SalesManagement;
-using PlanarSystemWS.src.Domain.shared;
+using PlanarSystemWS.src.Domain.Shared;
 
 namespace PlanarSystemWS.src.Domain.SolarEnergyManagement;
 

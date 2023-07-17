@@ -1,4 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.shared;
+﻿using PlanarSystemWS.src.Domain.Shared;
 using PlanarSystemWS.src.Domain.UserManagement;
 
 namespace PlanarSystemWS.src.Domain.ChatMessaging;

@@ -7,26 +7,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\Application\ActivityManagement\EventHandlers\" />
+    <Folder Include="src\Application\AddressManagement\EventHandlers\" />
+    <Folder Include="src\Application\ChatMessaging\EventHandlers\" />
     <Folder Include="src\Application\ChatMessaging\Services\" />
+    <Folder Include="src\Application\CustomerManagement\EventHandlers\" />
+    <Folder Include="src\Application\NotificationManagement\EventHandlers\" />
+    <Folder Include="src\Application\SalesManagement\EventHandlers\" />
     <Folder Include="src\Application\SalesManagement\Services\" />
-    <Folder Include="src\Application\UserManagement\Services\" />
+    <Folder Include="src\Application\SolarEnergyManagement\EventHandlers\" />
     <Folder Include="src\Domain\ActivityManagement\Interfaces\" />
+    <Folder Include="src\Domain\ActivityManagement\Events\" />
     <Folder Include="src\Domain\ActivityManagement\ValueObjects\" />
+    <Folder Include="src\Domain\AddressManagement\Events\" />
+    <Folder Include="src\Domain\ChatMessaging\Events\" />
+    <Folder Include="src\Domain\CustomerManagement\Events\" />
+    <Folder Include="src\Domain\NotificationManagement\Events\" />
     <Folder Include="src\Domain\NotificationManagement\Interfaces\" />
     <Folder Include="src\Domain\ChatMessaging\Interfaces\" />
     <Folder Include="src\Domain\ChatMessaging\Repositories\" />
     <Folder Include="src\Domain\ChatMessaging\Services\" />
     <Folder Include="src\Domain\ChatMessaging\ValueObjects\" />
     <Folder Include="src\Domain\NotificationManagement\ValueObjects\" />
+    <Folder Include="src\Domain\SalesManagement\Events\" />
+    <Folder Include="src\Domain\Shared\Events\" />
+    <Folder Include="src\Domain\SolarEnergyManagement\Events\" />
     <Folder Include="src\Domain\SolarEnergyManagement\Interfaces\" />
     <Folder Include="src\Domain\UserManagement\Enums\" />
     <Folder Include="src\Domain\UserManagement\Interfaces\" />
-    <Folder Include="src\Domain\UserManagement\Repositories\" />
-    <Folder Include="src\Domain\UserManagement\Services\" />
     <Folder Include="src\Domain\UserManagement\ValueObjects\" />
     <Folder Include="src\Domain\SalesManagement\Enums\" />
     <Folder Include="src\Domain\SalesManagement\Interfaces\" />
@@ -36,8 +50,6 @@
     <Folder Include="src\Domain\AddressManagement\Enums\" />
     <Folder Include="src\Domain\CustomerManagement\Interfaces\" />
     <Folder Include="src\Domain\SalesManagement\ValueObjects\" />
-    <Folder Include="src\Infra\Extensions\" />
-    <Folder Include="src\Infra\Repositories\UserManagement\" />
     <Folder Include="src\Infra\Repositories\SalesManagement\" />
     <Folder Include="src\Infra\Repositories\ChatMessaging\" />
     <Folder Include="src\Presentation\AddressManagement\Controllers\" />
