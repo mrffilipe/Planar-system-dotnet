@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PlanarSystemWS.src.Infra
 {
-    public class EventConsumer<TEvent> : BackgroundService where TEvent : class
+    public class EventConsumer<TEvent> : BackgroundService where TEvent : BaseEvent
     {
         private readonly IConnection _connection;
         private readonly IEventHandler<TEvent> _eventHandler;
@@ -20,13 +20,8 @@ namespace PlanarSystemWS.src.Infra
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var channel = _connection.CreateModel();
-            channel.QueueDeclare(
-                queue: "teste",
-                durable: true,
-                exclusive: false,
-                autoDelete: false,
-                arguments: null
-            );
+
+            string queue = "";
 
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += async (model, eventArgs) =>
@@ -36,6 +31,8 @@ namespace PlanarSystemWS.src.Infra
                 var eventData = JsonConvert.DeserializeObject<TEvent>(message);
 
                 // Verificar exceção eventData == null
+
+                queue = eventData.Queue;
 
                 // Executar handle
                 await _eventHandler.HandleEvent(eventData);

@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using PlanarSystemWS.src.Domain.Shared;
 using RabbitMQ.Client;
 using System.Text;
 
 namespace PlanarSystemWS.src.Infra;
 
-public class EventProducer<TEvent> where TEvent : class
+public class EventProducer<TEvent> where TEvent : BaseEvent
 {
     private readonly IConnection _connection;
 
@@ -21,8 +22,8 @@ public class EventProducer<TEvent> where TEvent : class
             var body = Encoding.UTF8.GetBytes(message);
 
             channel.BasicPublish(
-                    exchange: "",
-                    routingKey: "teste",
+                    exchange: @event.Exchange,
+                    routingKey: @event.RoutingKey,
                     basicProperties: null,
                     body: body
                 );
