@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlanarSystemWS.src.Domain.CustomerManagement;
 
 namespace PlanarSystemWS.src.Infra.Config.MySqlDbContext.CustomerManagement;
@@ -9,7 +10,22 @@ public class PhoneMap : BaseEntityMap<RefPhone>
     {
         base.Configure(builder);
 
-        builder.OwnsOne(typeof(Phone), "Phone");
+        builder.ToTable("phones");
+
+        builder.Property(x => x.IsWhatsapp)
+            .HasColumnName("is_whatsapp");
+
+        builder.OwnsOne(e => e.Phone, phone =>
+        {
+            phone.Property(x => x.CountryCode)
+                .HasColumnName("country_code");
+
+            phone.Property(x => x.DDD)
+                .HasColumnName("ddd");
+
+            phone.Property(x => x.Number)
+                .HasColumnName("number");
+        });
 
         builder.HasOne(e => e.Customer)
             .WithOne(e => e.Phone)

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlanarSystemWS.src.Domain.AddressManagement;
 using PlanarSystemWS.src.Domain.CustomerManagement;
 using PlanarSystemWS.src.Domain.SolarEnergyManagement;
@@ -11,7 +12,31 @@ public class AddressMap : BaseEntityMap<RefAddress>
     {
         base.Configure(builder);
 
-        builder.OwnsOne(typeof(Address), "Address");
+        builder.ToTable("adresses");
+
+        builder.OwnsOne(e => e.Address, address =>
+        {
+            address.Property(x => x.PostalCode)
+                .HasColumnName("postal_code");
+
+            address.Property(x => x.City)
+                .HasColumnName("city");
+
+            address.Property(x => x.State)
+                .HasColumnName("state");
+
+            address.Property(x => x.Country)
+                .HasColumnName("country");
+
+            address.Property(x => x.District)
+                .HasColumnName("district");
+
+            address.Property(x => x.Street)
+                .HasColumnName("street");
+
+            address.Property(x => x.Complement)
+                .HasColumnName("complement");
+        });
 
         builder.HasOne(e => e.Customer)
             .WithOne(e => e.Address)
