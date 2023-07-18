@@ -8,7 +8,7 @@ public class RefPhone : BaseEntity
     public Phone Phone { get; private set; }
     public Customer? Customer { get; private set; }
 
-    public RefPhone()
+    private RefPhone()
     {
     }
 

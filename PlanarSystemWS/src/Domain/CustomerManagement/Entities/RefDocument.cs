@@ -7,7 +7,7 @@ public class RefDocument : BaseEntity
     public Document Document { get; private set; }
     public Customer? Customer { get; private set; }
 
-    public RefDocument()
+    private RefDocument()
     {
     }
 
@@ -18,8 +18,6 @@ public class RefDocument : BaseEntity
 
     public void UpdateDocument(Document document)
     {
-        if (document == Document) return;
-
-        Document = document;
+        if (document != Document) Document = document;
     }
 }

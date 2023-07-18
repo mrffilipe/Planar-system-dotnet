@@ -16,7 +16,7 @@ public class RefBudgetForm : BaseEntity
     public Guid InstallationAddressId { get; private set; }
     public RefAddress InstallationAddress { get; private set; }
 
-    public RefBudgetForm()
+    private RefBudgetForm()
     {
     }
 

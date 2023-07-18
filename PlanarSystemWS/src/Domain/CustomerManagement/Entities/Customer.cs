@@ -17,7 +17,7 @@ public class Customer : BaseEntity
     public RefAddress Address { get; private set; }
     public RefBudgetForm? BudgetForm { get; private set; }
 
-    public Customer()
+    private Customer()
     {
     }
 
@@ -40,22 +40,16 @@ public class Customer : BaseEntity
 
     public void UpdateDocument(RefDocument document)
     {
-        if (document == Document) return;
-
-        Document = document;
+        if (document != Document) Document = document;
     }
 
     public void UpdatePhone(RefPhone phone)
     {
-        if (phone == Phone) return;
-
-        Phone = phone;
+        if (phone != Phone) Phone = phone;
     }
 
     public void UpdateAddress(RefAddress address)
     {
-        if (address == Address) return;
-
-        Address = address;
+        if (address != Address) Address = address;
     }
 }

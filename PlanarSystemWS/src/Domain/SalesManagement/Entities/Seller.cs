@@ -11,7 +11,7 @@ public class Seller : BaseEntity
     public User User { get; private set; }
     public RefBudgetForm? BudgetForm { get; private set; }
 
-    public Seller()
+    private Seller()
     {
     }
 

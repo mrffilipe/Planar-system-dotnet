@@ -11,7 +11,7 @@ public class ConsumerUnit : BaseEntity
     public Guid BudgetFormId { get; private set; }
     public RefBudgetForm BudgetForm { get; private set; }
 
-    public ConsumerUnit()
+    private ConsumerUnit()
     {
     }
 

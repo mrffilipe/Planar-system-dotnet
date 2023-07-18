@@ -9,7 +9,7 @@ public class User : BaseEntity
     public string Email { get; private set; }
     public Seller? Seller { get; private set; }
 
-    public User()
+    private User()
     {
     }
 
