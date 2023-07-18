@@ -1,12 +1,19 @@
 ﻿using PlanarSystemWS.src.Domain.Shared;
+using PlanarSystemWS.src.Domain.SolarEnergyManagement;
 using PlanarSystemWS.src.Domain.UserManagement;
 
 namespace PlanarSystemWS.src.Domain.SalesManagement;
 
 public class Seller : BaseEntity
 {
-    public User User { get; private set; }
     public double SalesCommission { get; private set; }
+    public Guid UserId { get; private set; }
+    public User User { get; private set; }
+    public RefBudgetForm? BudgetForm { get; private set; }
+
+    public Seller()
+    {
+    }
 
     public Seller(User user, double salesCommission)
     {

@@ -10,11 +10,11 @@ public class DocumentMap : BaseEntityMap<RefDocument>
     {
         base.Configure(builder);
 
+        builder.OwnsOne(typeof(Document), "Document");
+
         builder.HasOne(e => e.Customer)
             .WithOne(e => e.Document)
             .HasForeignKey<Customer>(e => e.DocumentId)
             .IsRequired();
-
-        builder.OwnsOne(typeof(Document), "Document");
     }
 }

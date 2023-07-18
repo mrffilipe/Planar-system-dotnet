@@ -1,5 +1,6 @@
 ﻿using PlanarSystemWS.src.Domain.AddressManagement;
 using PlanarSystemWS.src.Domain.Shared;
+using PlanarSystemWS.src.Domain.SolarEnergyManagement;
 
 namespace PlanarSystemWS.src.Domain.CustomerManagement;
 
@@ -14,6 +15,7 @@ public class Customer : BaseEntity
     public RefPhone Phone { get; private set; }
     public Guid AddressId { get; private set; }
     public RefAddress Address { get; private set; }
+    public RefBudgetForm? BudgetForm { get; private set; }
 
     public Customer()
     {

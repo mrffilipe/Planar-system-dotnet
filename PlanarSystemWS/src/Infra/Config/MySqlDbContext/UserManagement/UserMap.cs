@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PlanarSystemWS.src.Domain.SalesManagement;
 using PlanarSystemWS.src.Domain.UserManagement;
 
 namespace PlanarSystemWS.src.Infra.Config.MySqlDbContext.UserManagement;
@@ -9,6 +10,9 @@ public class UserMap : BaseEntityMap<User>
     {
         base.Configure(builder);
 
-
+        builder.HasOne(e => e.Seller)
+            .WithOne(e => e.User)
+            .HasForeignKey<Seller>(e => e.UserId)
+            .IsRequired();
     }
 }

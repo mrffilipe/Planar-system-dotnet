@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace PlanarSystemWS.src.Domain.AddressManagement;
+﻿namespace PlanarSystemWS.src.Domain.AddressManagement;
 
 public class Address
 {

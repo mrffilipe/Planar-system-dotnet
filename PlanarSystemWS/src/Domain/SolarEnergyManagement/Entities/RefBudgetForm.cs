@@ -9,9 +9,16 @@ public class RefBudgetForm : BaseEntity
 {
     public BudgetForm BudgetForm { get; private set; }
     public ICollection<ConsumerUnit> ConsumerUnits { get; private set; }
+    public Guid SellerId { get; private set; }
     public Seller Seller { get; private set; }
+    public Guid CustomerId { get; private set; }
     public Customer Customer { get; private set; }
+    public Guid InstallationAddressId { get; private set; }
     public RefAddress InstallationAddress { get; private set; }
+
+    public RefBudgetForm()
+    {
+    }
 
     public RefBudgetForm(
         BudgetForm budgetForm,

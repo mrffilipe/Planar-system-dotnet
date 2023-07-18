@@ -8,7 +8,7 @@ namespace PlanarSystemWS.src.Infra;
 
 public class MySqlDbContext : DbContext
 {
-    public DbSet<Address> Adresses { get; set; }
+    public DbSet<RefAddress> Adresses { get; set; }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<RefDocument> Documents { get; set; }
     public DbSet<RefPhone> Phones { get; set; }

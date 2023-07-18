@@ -8,6 +8,12 @@ public class ConsumerUnit : BaseEntity
     public NetworkType NetworkType { get; private set; }
     public double MonthlyConsumption { get; private set; }
     public double UnitPrice { get; private set; }
+    public Guid BudgetFormId { get; private set; }
+    public RefBudgetForm BudgetForm { get; private set; }
+
+    public ConsumerUnit()
+    {
+    }
 
     public ConsumerUnit(
         string reference,
