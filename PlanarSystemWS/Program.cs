@@ -1,6 +1,3 @@
-using PlanarSystemWS.src.Application.UserManagement;
-using PlanarSystemWS.src.Domain.Shared;
-using PlanarSystemWS.src.Domain.UserManagement;
 using PlanarSystemWS.src.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services
     .AddEventHandlers()
-    .AddDbContexts();
+    .AddDbContexts()
+    .AddAdapters()
+    .AddServices()
+    .AddRepositories()
+    .AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

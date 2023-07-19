@@ -6,7 +6,7 @@ public interface ICustomerAdapter
 {
     Task Save(CustomerRegistrationDTO customer);
     Task<ReplyCustomerDTO> FindById(Guid id);
-    Task Update(CustomerRegistrationDTO customer);
+    Task Update(CustomerRegistrationDTO origin, CustomerRegistrationDTO updated);
     Task UpdateDocument(DocumentRegistrationDTO document);
     Task UpdatePhone(PhoneRegistrationDTO phone);
     Task UpdateAddress(AddressRegistrationDTO address);

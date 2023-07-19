@@ -4,5 +4,5 @@ public interface ISolarEnergyAdapter
 {
     Task SaveBudgetForm(BudgetFormRegistrationDTO budgetForm);
     Task<ReplyBudgetFormDTO> FindBudgetFormById(Guid id);
-    Task UpdateBudgetForm(BudgetFormRegistrationDTO budgetForm);
+    Task UpdateBudgetForm(BudgetFormRegistrationDTO origin, BudgetFormRegistrationDTO updated);
 }
