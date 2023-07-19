@@ -1,7 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
-using PlanarSystemWS.src.Domain.UserManagement;
-
-namespace PlanarSystemWS.src.Domain.NotificationManagement;
+﻿namespace PlanarNotificationWS.src.Domain;
 
 public class Notification : BaseEntity
 {

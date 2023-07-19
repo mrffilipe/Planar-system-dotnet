@@ -1,6 +1,6 @@
-﻿using PlanarSystemWS.src.Domain.NotificationManagement;
+﻿using PlanarNotificationWS.src.Domain;
 
-namespace PlanarSystemWS.src.Infra.Repositories.NotificationManagement;
+namespace PlanarNotificationWS.src.Infra;
 
 public class NotificationRepository : INotificationRepository
 {

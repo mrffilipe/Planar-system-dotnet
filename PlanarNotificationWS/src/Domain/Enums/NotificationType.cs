@@ -1,4 +1,4 @@
-﻿namespace PlanarSystemWS.src.Domain.NotificationManagement;
+﻿namespace PlanarNotificationWS.src.Domain;
 
 public enum NotificationType : byte
 {

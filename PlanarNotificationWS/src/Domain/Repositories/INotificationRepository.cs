@@ -1,4 +1,4 @@
-﻿namespace PlanarSystemWS.src.Domain.NotificationManagement;
+﻿namespace PlanarNotificationWS.src.Domain;
 
 public interface INotificationRepository
 {
