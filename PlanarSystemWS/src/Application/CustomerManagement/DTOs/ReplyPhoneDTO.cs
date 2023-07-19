@@ -4,6 +4,6 @@ namespace PlanarSystemWS.src.Application.CustomerManagement;
 
 public class ReplyPhoneDTO
 {
-    public bool IsWhatsapp { get; private set; }
-    public Phone Phone { get; private set; }
+    public bool IsWhatsapp { get; set; }
+    public Phone Phone { get; set; }
 }

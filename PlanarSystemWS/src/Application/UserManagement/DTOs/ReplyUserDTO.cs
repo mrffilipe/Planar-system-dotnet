@@ -1,12 +1,7 @@
-﻿using PlanarSystemWS.src.Application.Shared;
+﻿namespace PlanarSystemWS.src.Application.UserManagement;
 
-namespace PlanarSystemWS.src.Application.UserManagement;
-
-public class ReplyUserDTO : IEntityDTO
+public class ReplyUserDTO
 {
-    public Guid Id { get; set; }
-    public string UserName { get; private set; }
-    public string Email { get; private set; }
-    public DateTime CreatedOn { get; set; }
-    public DateTime UpdatedOn { get; set; }
+    public string UserName { get; set; }
+    public string Email { get; set; }
 }

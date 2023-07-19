@@ -27,13 +27,13 @@ public class CustomerAdapter : ICustomerAdapter
         catch (Exception ex) { throw; }
     }
 
-    public async Task<ReplyCustomerDTO> FindById(Guid id)
+    public async Task<DetailedReplyCustomerDTO> FindById(Guid id)
     {
         try
         {
             var customer = await _customerService.FindById(id);
 
-            return _mapper.Map<ReplyCustomerDTO>(customer);
+            return _mapper.Map<DetailedReplyCustomerDTO>(customer);
         }
         catch (Exception ex) { throw; }
     }

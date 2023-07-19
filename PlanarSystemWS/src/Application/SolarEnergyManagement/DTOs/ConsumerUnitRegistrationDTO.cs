@@ -4,9 +4,8 @@ namespace PlanarSystemWS.src.Application.SolarEnergyManagement;
 
 public class ConsumerUnitRegistrationDTO
 {
-    public string Reference { get; private set; }
-    public NetworkType NetworkType { get; private set; }
-    public double MonthlyConsumption { get; private set; }
-    public double UnitPrice { get; private set; }
-    public BudgetFormRegistrationDTO BudgetForm { get; private set; }
+    public string Reference { get; set; }
+    public NetworkType NetworkType { get; set; }
+    public double MonthlyConsumption { get; set; }
+    public double UnitPrice { get; set; }
 }

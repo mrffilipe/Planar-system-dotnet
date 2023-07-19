@@ -15,6 +15,10 @@ public class SolarEnergyService : ISolarEnergyService
     {
         try
         {
+            // obter o vendedor
+
+            
+
             await _solarEnergyRepository.SaveBudgetForm(budgetForm);
         }
         catch (Exception ex) { throw; }

@@ -65,9 +65,8 @@
     <Folder Include="src\Domain\SalesManagement\ValueObjects\" />
     <Folder Include="src\Infra\Repositories\SalesManagement\" />
     <Folder Include="src\Infra\Repositories\ChatMessaging\" />
-    <Folder Include="src\Presentation\AddressManagement\Controllers\" />
     <Folder Include="src\Presentation\AddressManagement\Filters\" />
-    <Folder Include="src\Presentation\CustomerManagement\Controllers\" />
+    <Folder Include="src\Presentation\SolarEnergyManagement\Filters\" />
     <Folder Include="src\Presentation\CustomerManagement\Filters\" />
     <Folder Include="tests\" />
   </ItemGroup>

@@ -4,6 +4,6 @@ namespace PlanarSystemWS.src.Application.SalesManagement;
 
 public class SellerRegistrationDTO
 {
-    public double SalesCommission { get; private set; }
-    public UserRegistrationDTO User { get; private set; }
+    public double SalesCommission { get; set; }
+    public UserRegistrationDTO User { get; set; }
 }

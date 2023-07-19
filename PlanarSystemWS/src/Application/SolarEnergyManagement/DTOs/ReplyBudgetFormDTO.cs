@@ -8,13 +8,12 @@ namespace PlanarSystemWS.src.Application.SolarEnergyManagement;
 
 public class ReplyBudgetFormDTO : IEntityDTO
 {
-    public Guid Id { get; private set; }
-    public BudgetForm BudgetForm { get; private set; }
-    public ICollection<ReplyConsumerUnitDTO> ConsumerUnits { get; private set; }
-    public ReplySellerDTO Seller { get; private set; }
-    public ReplyCustomerDTO Customer { get; private set; }
-    public ReplyAddressDTO InstallationAddress { get; private set; }
-    public DateTime CreatedOn { get; private set; }
-
-    public DateTime UpdatedOn { get; private set; }
+    public Guid Id { get; set; }
+    public BudgetForm BudgetForm { get; set; }
+    public ICollection<ReplyConsumerUnitDTO> ConsumerUnits { get; set; }
+    public ReplySellerDTO Seller { get; set; }
+    public ReplyCustomerDTO Customer { get; set; }
+    public ReplyAddressDTO InstallationAddress { get; set; }
+    public DateTime CreatedOn { get; set; }
+    public DateTime UpdatedOn { get; set; }
 }

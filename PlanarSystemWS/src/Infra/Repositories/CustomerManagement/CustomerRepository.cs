@@ -28,7 +28,11 @@ public class CustomerRepository : ICustomerRepository
     {
         try
         {
-            var customer = await _context.Customers.FirstOrDefaultAsync(x => x.Equals(id));
+            var customer = await _context.Customers
+                .Include(x => x.Document)
+                .Include(x => x.Phone)
+                .Include(x => x.Address)
+                .FirstOrDefaultAsync(x => x.Id.Equals(id));
 
             return customer;
         }

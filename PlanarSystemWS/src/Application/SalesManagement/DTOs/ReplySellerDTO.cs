@@ -4,6 +4,6 @@ namespace PlanarSystemWS.src.Application.SalesManagement;
 
 public class ReplySellerDTO
 {
-    public double SalesCommission { get; private set; }
-    public ReplyUserDTO User { get; private set; }
+    public double SalesCommission { get; set; }
+    public ReplyUserDTO User { get; set; }
 }

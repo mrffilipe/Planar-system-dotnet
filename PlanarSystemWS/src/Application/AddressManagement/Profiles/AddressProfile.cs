@@ -8,6 +8,7 @@ public class AddressProfile : Profile
     public AddressProfile()
     {
         CreateMap<AddressRegistrationDTO, RefAddress>();
+        CreateMap<RefAddress, DetailedReplyAddressDTO>();
         CreateMap<RefAddress, ReplyAddressDTO>();
     }
 }

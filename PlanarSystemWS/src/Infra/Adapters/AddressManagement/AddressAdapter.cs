@@ -26,13 +26,13 @@ namespace PlanarSystemWS.src.Infra.Adapters.AddressManagement
             catch (Exception ex) { throw; }
         }
 
-        public async Task<ReplyAddressDTO> FindById(Guid id)
+        public async Task<DetailedReplyAddressDTO> FindById(Guid id)
         {
             try
             {
                 var address = await _addressService.FindById(id);
 
-                return _mapper.Map<ReplyAddressDTO>(address);
+                return _mapper.Map<DetailedReplyAddressDTO>(address);
             }
             catch (Exception ex) { throw; }
         }
