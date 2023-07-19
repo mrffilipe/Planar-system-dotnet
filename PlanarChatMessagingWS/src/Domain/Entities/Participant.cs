@@ -1,7 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
-using PlanarSystemWS.src.Domain.UserManagement;
-
-namespace PlanarSystemWS.src.Domain.ChatMessaging;
+﻿namespace PlanarChatMessagingWS.src.Domain;
 
 public class Participant : BaseEntity
 {

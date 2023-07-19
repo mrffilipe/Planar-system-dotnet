@@ -1,6 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
-
-namespace PlanarSystemWS.src.Domain.ChatMessaging;
+﻿namespace PlanarChatMessagingWS.src.Domain;
 
 public class Message : BaseEntity
 {

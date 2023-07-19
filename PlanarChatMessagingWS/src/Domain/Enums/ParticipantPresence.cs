@@ -1,4 +1,4 @@
-﻿namespace PlanarSystemWS.src.Domain.ChatMessaging;
+﻿namespace PlanarChatMessagingWS.src.Domain;
 
 public enum ParticipantPresence : byte
 {
