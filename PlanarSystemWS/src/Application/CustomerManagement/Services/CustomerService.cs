@@ -12,33 +12,62 @@ public class CustomerService : ICustomerService
         _customerRepository = customerRepository;
     }
 
-    public Task Save(Customer customer)
+    public async Task Save(Customer customer)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _customerRepository.Save(customer);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<Customer> FindById(Guid id)
+    public async Task<Customer> FindById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var customer = await _customerRepository.FindById(id);
+
+            return customer;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task Update(Customer customer)
+    public async Task Update(Customer origin, Customer updated)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (origin != null && updated != null)
+            {
+                await _customerRepository.Update(origin, updated);
+            }
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateDocument(RefDocument document)
+    public async Task UpdateDocument(RefDocument document)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdatePhone(RefPhone phone)
+    public async Task UpdatePhone(RefPhone phone)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateAddress(RefAddress address)
+    public async Task UpdateAddress(RefAddress address)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 }

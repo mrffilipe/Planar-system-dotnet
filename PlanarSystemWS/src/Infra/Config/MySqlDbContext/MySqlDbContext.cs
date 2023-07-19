@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlanarSystemWS.src.Domain.AddressManagement;
 using PlanarSystemWS.src.Domain.CustomerManagement;
+using PlanarSystemWS.src.Domain.SolarEnergyManagement;
 using PlanarSystemWS.src.Domain.UserManagement;
 using System.Reflection;
 
@@ -12,6 +13,7 @@ public class MySqlDbContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<RefDocument> Documents { get; set; }
     public DbSet<RefPhone> Phones { get; set; }
+    public DbSet<RefBudgetForm> BudgetForms { get; set; }
     public DbSet<User> Users { get; set; }
 
     public MySqlDbContext(DbContextOptions<MySqlDbContext> options) : base(options)

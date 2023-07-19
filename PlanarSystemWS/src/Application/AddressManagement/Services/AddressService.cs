@@ -11,18 +11,35 @@ public class AddressService : IAddressService
         _addressRepository = addressRepository;
     }
 
-    public Task Save(RefAddress address)
+    public async Task Save(RefAddress address)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _addressRepository.Save(address);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<RefAddress> FindById(Guid id)
+    public async Task<RefAddress> FindById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var address = await _addressRepository.FindById(id);
+
+            return address;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task Update(RefAddress address)
+    public async Task Update(RefAddress origin, RefAddress updated)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (origin != null && updated != null)
+            {
+                await _addressRepository.Update(origin, updated);
+            }
+        }
+        catch (Exception ex) { throw; }
     }
 }

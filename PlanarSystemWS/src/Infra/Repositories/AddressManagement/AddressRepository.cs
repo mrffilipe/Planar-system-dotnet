@@ -1,23 +1,50 @@
-﻿using PlanarSystemWS.src.Domain.AddressManagement;
+﻿using Microsoft.EntityFrameworkCore;
+using PlanarSystemWS.src.Domain.AddressManagement;
 
 namespace PlanarSystemWS.src.Infra.Repositories.AddressManagement;
 
 public class AddressRepository : IAddressRepository
 {
-    // ...
+    private readonly MySqlDbContext _context;
 
-    public Task Save(RefAddress address)
+    public AddressRepository(MySqlDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<RefAddress> FindById(Guid id)
+    public async Task Save(RefAddress address)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _context.Adresses
+                .AddAsync(address);
+
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task Update(RefAddress address)
+    public async Task<RefAddress> FindById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var address = await _context.Adresses
+                .FirstOrDefaultAsync(x => x.Id.Equals(id));
+
+            return address;
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task Update(RefAddress origin, RefAddress updated)
+    {
+        try
+        {
+            _context.Attach(updated);
+            _context.Entry(updated).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex) { throw; }
     }
 }

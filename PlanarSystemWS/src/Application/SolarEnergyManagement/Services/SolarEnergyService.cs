@@ -11,18 +11,35 @@ public class SolarEnergyService : ISolarEnergyService
         _solarEnergyRepository = solarEnergyRepository;
     }
 
-    public Task SaveBudgetForm(RefBudgetForm budgetForm)
+    public async Task SaveBudgetForm(RefBudgetForm budgetForm)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _solarEnergyRepository.SaveBudgetForm(budgetForm);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<RefBudgetForm> FindBudgetFormById(Guid id)
+    public async Task<RefBudgetForm> FindBudgetFormById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var budgetForm = await _solarEnergyRepository.FindBudgetFormById(id);
+
+            return budgetForm;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateBudgetForm(RefBudgetForm budgetForm)
+    public async Task UpdateBudgetForm(RefBudgetForm origin, RefBudgetForm updated)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (origin != null && updated != null)
+            {
+                await _solarEnergyRepository.UpdateBudgetForm(origin, updated);
+            }
+        }
+        catch (Exception ex) { throw; }
     }
 }

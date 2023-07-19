@@ -4,5 +4,5 @@ public interface ISolarEnergyRepository
 {
     Task SaveBudgetForm(RefBudgetForm budgetForm);
     Task<RefBudgetForm> FindBudgetFormById(Guid id);
-    Task UpdateBudgetForm(RefBudgetForm budgetForm);
+    Task UpdateBudgetForm(RefBudgetForm origin, RefBudgetForm updated);
 }

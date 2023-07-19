@@ -1,39 +1,72 @@
-﻿using PlanarSystemWS.src.Domain.AddressManagement;
+﻿using Microsoft.EntityFrameworkCore;
+using PlanarSystemWS.src.Domain.AddressManagement;
 using PlanarSystemWS.src.Domain.CustomerManagement;
 
 namespace PlanarSystemWS.src.Infra.Repositories.CustomerManagement;
 
 public class CustomerRepository : ICustomerRepository
 {
-    // ...
+    private readonly MySqlDbContext _context;
 
-    public Task Save(Customer customer)
+    public CustomerRepository(MySqlDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task Save(Customer customer)
+    {
+        try
+        {
+            await _context.Customers.AddAsync(customer);
+
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task<Customer> FindById(Guid id)
+    {
+        try
+        {
+            var customer = await _context.Customers.FirstOrDefaultAsync(x => x.Equals(id));
+
+            return customer;
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task Update(Customer origin, Customer updated)
+    {
+        try
+        {
+            _context.Attach(updated);
+            _context.Entry(updated).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdateDocument(RefDocument document)
+    {
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdatePhone(RefPhone phone)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Customer> FindById(Guid id)
+    public async Task UpdateAddress(RefAddress address)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
 
-    public Task Update(Customer customer)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateDocument(RefDocument document)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdatePhone(RefPhone phone)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateAddress(RefAddress address)
-    {
-        throw new NotImplementedException();
+        }
+        catch (Exception ex) { throw; }
     }
 }

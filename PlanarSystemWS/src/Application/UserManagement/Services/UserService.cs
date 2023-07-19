@@ -13,16 +13,33 @@ public class UserService : IUserService
 
     public async Task Register(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _userRepository.Register(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
     public async Task<User> FindById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var user = await _userRepository.FindById(id);
+
+            return user;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public async Task Update(User user)
+    public async Task Update(User origin, User updated)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (origin != null && updated != null)
+            {
+                await _userRepository.Update(origin, updated);
+            }
+        }
+        catch (Exception ex) { throw; }
     }
 }

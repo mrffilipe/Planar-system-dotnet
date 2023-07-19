@@ -4,5 +4,5 @@ public interface IAddressService
 {
     Task Save(RefAddress address);
     Task<RefAddress> FindById(Guid id);
-    Task Update(RefAddress address);
+    Task Update(RefAddress origin, RefAddress updated);
 }
