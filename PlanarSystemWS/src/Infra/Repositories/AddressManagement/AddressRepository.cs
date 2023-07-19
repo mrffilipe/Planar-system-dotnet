@@ -6,17 +6,17 @@ public class AddressRepository : IAddressRepository
 {
     // ...
 
-    public void Save(RefAddress address)
+    public Task Save(RefAddress address)
     {
         throw new NotImplementedException();
     }
 
-    public RefAddress FindById(string id)
+    public Task<RefAddress> FindById(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public void Update(RefAddress address)
+    public Task Update(RefAddress address)
     {
         throw new NotImplementedException();
     }

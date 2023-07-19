@@ -4,10 +4,10 @@ namespace PlanarSystemWS.src.Domain.CustomerManagement;
 
 public interface ICustomerService
 {
-    void Save(Customer customer);
-    Customer FindById(string id);
-    void Update(Customer customer);
-    void UpdateDocument(RefDocument document);
-    void UpdatePhone(RefPhone phone);
-    void UpdateAddress(RefAddress address);
+    Task Save(Customer customer);
+    Task<Customer> FindById(Guid id);
+    Task Update(Customer customer);
+    Task UpdateDocument(RefDocument document);
+    Task UpdatePhone(RefPhone phone);
+    Task UpdateAddress(RefAddress address);
 }

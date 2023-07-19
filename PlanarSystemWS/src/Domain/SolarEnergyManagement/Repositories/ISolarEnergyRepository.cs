@@ -2,7 +2,7 @@
 
 public interface ISolarEnergyRepository
 {
-    void SaveBudgetForm(RefBudgetForm budgetForm);
-    RefBudgetForm FindBudgetFormById(string id);
-    void UpdateBudgetForm(RefBudgetForm budgetForm);
+    Task SaveBudgetForm(RefBudgetForm budgetForm);
+    Task<RefBudgetForm> FindBudgetFormById(Guid id);
+    Task UpdateBudgetForm(RefBudgetForm budgetForm);
 }

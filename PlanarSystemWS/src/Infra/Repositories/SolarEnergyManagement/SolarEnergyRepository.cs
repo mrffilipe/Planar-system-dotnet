@@ -6,17 +6,17 @@ public class SolarEnergyRepository : ISolarEnergyRepository
 {
     // ...
 
-    public void SaveBudgetForm(RefBudgetForm budgetForm)
+    public Task SaveBudgetForm(RefBudgetForm budgetForm)
     {
         throw new NotImplementedException();
     }
 
-    public RefBudgetForm FindBudgetFormById(string id)
+    public Task<RefBudgetForm> FindBudgetFormById(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public void UpdateBudgetForm(RefBudgetForm budgetForm)
+    public Task UpdateBudgetForm(RefBudgetForm budgetForm)
     {
         throw new NotImplementedException();
     }

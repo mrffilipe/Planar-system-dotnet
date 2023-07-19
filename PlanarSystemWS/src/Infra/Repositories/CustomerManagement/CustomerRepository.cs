@@ -7,32 +7,32 @@ public class CustomerRepository : ICustomerRepository
 {
     // ...
 
-    public void Save(Customer customer)
+    public Task Save(Customer customer)
     {
         throw new NotImplementedException();
     }
 
-    public Customer FindById(string id)
+    public Task<Customer> FindById(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public void Update(Customer customer)
+    public Task Update(Customer customer)
     {
         throw new NotImplementedException();
     }
 
-    public void UpdateDocument(RefDocument document)
+    public Task UpdateDocument(RefDocument document)
     {
         throw new NotImplementedException();
     }
 
-    public void UpdatePhone(RefPhone phone)
+    public Task UpdatePhone(RefPhone phone)
     {
         throw new NotImplementedException();
     }
 
-    public void UpdateAddress(RefAddress address)
+    public Task UpdateAddress(RefAddress address)
     {
         throw new NotImplementedException();
     }

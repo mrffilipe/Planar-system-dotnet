@@ -16,7 +16,7 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public async Task<User> FindById(string id)
+    public async Task<User> FindById(Guid id)
     {
         throw new NotImplementedException();
     }
