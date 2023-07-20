@@ -1,22 +1,23 @@
-﻿namespace PlanarActivityWS.src.Domain;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace PlanarActivityWS.src.Domain;
 
 public class Activity : BaseEntity
 {
-    public User User { get; private set; }
-    public ActivityType Type { get; private set; }
-    public string RelationshipId { get; private set; }
+    [BsonId]
+    public ObjectId UserId { get; private set; }
+    public ActivityRelationship Relationship { get; private set; }
     public ActivityStatus Status { get; private set; }
 
     public Activity(
-        User user,
-        ActivityType type,
-        string relationshipId,
+        ObjectId userId,
+        ActivityRelationship relationship,
         ActivityStatus status
         )
     {
-        User = user;
-        Type = type;
-        RelationshipId = relationshipId;
+        UserId = userId;
+        Relationship = relationship;
         Status = status;
     }
 

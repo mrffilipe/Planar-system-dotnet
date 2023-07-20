@@ -1,4 +1,5 @@
-﻿using PlanarActivityWS.src.Domain;
+﻿using MongoDB.Bson;
+using PlanarActivityWS.src.Domain;
 
 namespace PlanarActivityWS.src.Infra;
 
@@ -6,17 +7,27 @@ public class ActivityRepository : IActivityRepository
 {
     // ...
 
-    public void Save(Activity activity)
+    public Task SaveActivity(Activity activity)
     {
         throw new NotImplementedException();
     }
 
-    public Activity FindById(string id)
+    public Task<ICollection<Activity>> FindActivitiesByUserId(ObjectId userId)
     {
         throw new NotImplementedException();
     }
 
-    public void Update(Activity activity)
+    public Task UpdateActivity(Activity activity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task SaveUser(User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateUser(User user)
     {
         throw new NotImplementedException();
     }

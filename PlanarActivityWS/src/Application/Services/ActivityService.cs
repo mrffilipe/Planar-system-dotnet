@@ -11,17 +11,27 @@ public class ActivityService : IActivityService
         _activityRepository = activityRepository;
     }
 
-    public void Save(Activity activity)
+    public Task SaveActivity(Activity activity)
     {
         throw new NotImplementedException();
     }
 
-    public Activity FindById(string id)
+    public Task<ICollection<Activity>> FindActivities()
     {
         throw new NotImplementedException();
     }
 
-    public void Update(Activity activity)
+    public Task UpdateActivity(Activity activity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task SaveUser(User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateUser(User user)
     {
         throw new NotImplementedException();
     }

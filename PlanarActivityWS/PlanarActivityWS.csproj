@@ -15,11 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Application\Adapters\" />
     <Folder Include="src\Infra\Interfaces\" />
     <Folder Include="src\Infra\Eventing\" />
     <Folder Include="src\Infra\Config\" />
-    <Folder Include="src\Infra\Adapters\" />
     <Folder Include="src\Presentation\Filters\" />
   </ItemGroup>
 

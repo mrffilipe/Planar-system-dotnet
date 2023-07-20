@@ -1,8 +1,12 @@
-﻿namespace PlanarActivityWS.src.Domain;
+﻿using MongoDB.Bson;
+
+namespace PlanarActivityWS.src.Domain;
 
 public interface IActivityService
 {
-    void Save(Activity activity);
-    Activity FindById(string id);
-    void Update(Activity activity);
+    Task SaveActivity(Activity activity);
+    Task<ICollection<Activity>> FindActivities();
+    Task UpdateActivity(Activity activity);
+    Task SaveUser(User user);
+    Task UpdateUser(User user);
 }
