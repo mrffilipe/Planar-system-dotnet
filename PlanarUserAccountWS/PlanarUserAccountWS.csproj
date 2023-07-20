@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.20.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\Application\Services\" />
+    <Folder Include="src\Application\Adapters\" />
+    <Folder Include="src\Domain\Services\" />
+    <Folder Include="src\Domain\Repositories\" />
+    <Folder Include="src\Domain\Enums\" />
+    <Folder Include="src\Infra\Repositories\" />
+    <Folder Include="src\Infra\Interfaces\" />
+    <Folder Include="src\Infra\Eventing\" />
+    <Folder Include="src\Infra\Config\" />
+    <Folder Include="src\Infra\Adapters\" />
+    <Folder Include="src\Presentation\Filters\" />
+  </ItemGroup>
+
+</Project>

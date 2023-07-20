@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanarChatMessagingWS", "Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanarActivityWS", "PlanarActivityWS\PlanarActivityWS.csproj", "{26CFB6B7-64C1-4227-B93D-EF69073C97CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanarUserAccountWS", "PlanarUserAccountWS\PlanarUserAccountWS.csproj", "{66642D5D-62C6-46C9-96C6-54A4795504F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{26CFB6B7-64C1-4227-B93D-EF69073C97CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26CFB6B7-64C1-4227-B93D-EF69073C97CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26CFB6B7-64C1-4227-B93D-EF69073C97CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66642D5D-62C6-46C9-96C6-54A4795504F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66642D5D-62C6-46C9-96C6-54A4795504F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66642D5D-62C6-46C9-96C6-54A4795504F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66642D5D-62C6-46C9-96C6-54A4795504F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
