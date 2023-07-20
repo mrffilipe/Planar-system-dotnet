@@ -1,8 +1,12 @@
-﻿namespace PlanarNotificationWS.src.Domain;
+﻿using MongoDB.Bson;
+
+namespace PlanarNotificationWS.src.Domain;
 
 public interface INotificationService
 {
-    void Save(Notification notification);
-    Notification FindById(string id);
-    void Update(Notification notification);
+    Task SaveNotification(Notification notification);
+    Task<ICollection<Notification>> FindNotificationsByUserId(ObjectId id);
+    Task UpdateNotification(Notification notification);
+    Task SaveUser(User user);
+    Task UpdateUser(User user);
 }

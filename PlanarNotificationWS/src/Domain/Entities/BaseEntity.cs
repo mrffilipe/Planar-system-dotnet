@@ -1,10 +1,14 @@
-﻿namespace PlanarNotificationWS.src.Domain;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-public abstract class BaseEntity : IEntity<Guid>
+namespace PlanarNotificationWS.src.Domain;
+
+public abstract class BaseEntity : IEntity<ObjectId>
 {
-    public Guid Id { get; private set; }
-
+    [BsonId]
+    public ObjectId Id { get; private set; }
+    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
     public DateTime CreatedOn { get; private set; }
-
+    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
     public DateTime UpdatedOn { get; private set; }
 }

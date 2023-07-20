@@ -1,29 +1,30 @@
-﻿namespace PlanarNotificationWS.src.Domain;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace PlanarNotificationWS.src.Domain;
 
 public class Notification : BaseEntity
 {
-    public User User { get; private set; }
-    public NotificationType Type { get; private set; }
-    public string RelationshipId { get; private set; }
+    public ObjectId UserId { get; private set; }
+    public NotificationRelationship Relationship { get; private set; }
     public string Text { get; private set; }
     public bool Read { get; private set; }
+    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
     public DateTime DateRead { get; private set; }
 
     public Notification(
-        User user,
-        NotificationType type,
-        string relationshipId,
-        string text,
-        bool read,
-        DateTime dateRead
+        ObjectId userId,
+        NotificationRelationship relationship,
+        string text
+        //bool read,
+        //DateTime dateRead
         )
     {
-        User = user;
-        Type = type;
-        RelationshipId = relationshipId;
+        UserId = userId;
+        Relationship = relationship;
         Text = text;
-        Read = read;
-        DateRead = dateRead;
+        //Read = read;
+        //DateRead = dateRead;
     }
 
     public void ConfirmRead()

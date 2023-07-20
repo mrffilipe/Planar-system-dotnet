@@ -1,8 +1,10 @@
-﻿namespace PlanarChatMessagingWS.src.Domain;
+﻿using MongoDB.Bson;
 
-public abstract class BaseEntity : IEntity<Guid>
+namespace PlanarChatMessagingWS.src.Domain;
+
+public abstract class BaseEntity : IEntity<ObjectId>
 {
-    public Guid Id { get; private set; }
+    public ObjectId Id { get; private set; }
 
     public DateTime CreatedOn { get; private set; }
 

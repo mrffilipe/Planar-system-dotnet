@@ -1,6 +1,6 @@
 ﻿namespace PlanarNotificationWS.src.Domain;
 
-public enum NotificationType : byte
+public enum NotificationRelationshipType : byte
 {
     ChatMessaging,
     SolarEnergy
