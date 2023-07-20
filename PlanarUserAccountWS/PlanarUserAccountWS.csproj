@@ -15,16 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Application\Services\" />
-    <Folder Include="src\Application\Adapters\" />
-    <Folder Include="src\Domain\Services\" />
-    <Folder Include="src\Domain\Repositories\" />
     <Folder Include="src\Domain\Enums\" />
-    <Folder Include="src\Infra\Repositories\" />
     <Folder Include="src\Infra\Interfaces\" />
     <Folder Include="src\Infra\Eventing\" />
     <Folder Include="src\Infra\Config\" />
-    <Folder Include="src\Infra\Adapters\" />
     <Folder Include="src\Presentation\Filters\" />
   </ItemGroup>
 
