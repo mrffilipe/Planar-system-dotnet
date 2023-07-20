@@ -1,6 +1,6 @@
-﻿using PlanarSystemWS.src.Domain.ActivityManagement;
+﻿using PlanarActivityWS.src.Domain;
 
-namespace PlanarSystemWS.src.Infra.Repositories.ActivityManagement;
+namespace PlanarActivityWS.src.Infra;
 
 public class ActivityRepository : IActivityRepository
 {

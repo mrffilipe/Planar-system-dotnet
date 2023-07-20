@@ -1,4 +1,4 @@
-﻿namespace PlanarSystemWS.src.Domain.ActivityManagement;
+﻿namespace PlanarActivityWS.src.Domain;
 
 public enum ActivityStatus : byte
 {

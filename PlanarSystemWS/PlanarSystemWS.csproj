@@ -26,15 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Application\ActivityManagement\EventHandlers\" />
     <Folder Include="src\Application\AddressManagement\EventHandlers\" />
     <Folder Include="src\Application\CustomerManagement\EventHandlers\" />
     <Folder Include="src\Application\SalesManagement\EventHandlers\" />
     <Folder Include="src\Application\SalesManagement\Services\" />
     <Folder Include="src\Application\SolarEnergyManagement\EventHandlers\" />
-    <Folder Include="src\Domain\ActivityManagement\Interfaces\" />
-    <Folder Include="src\Domain\ActivityManagement\Events\" />
-    <Folder Include="src\Domain\ActivityManagement\ValueObjects\" />
     <Folder Include="src\Domain\AddressManagement\Events\" />
     <Folder Include="src\Domain\CustomerManagement\Events\" />
     <Folder Include="src\Domain\SalesManagement\Events\" />

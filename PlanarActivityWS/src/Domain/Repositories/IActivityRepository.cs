@@ -1,6 +1,6 @@
-﻿namespace PlanarSystemWS.src.Domain.ActivityManagement;
+﻿namespace PlanarActivityWS.src.Domain;
 
-public interface IActivityService
+public interface IActivityRepository
 {
     void Save(Activity activity);
     Activity FindById(string id);

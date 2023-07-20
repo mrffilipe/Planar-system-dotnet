@@ -1,7 +1,4 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
-using PlanarSystemWS.src.Domain.UserManagement;
-
-namespace PlanarSystemWS.src.Domain.ActivityManagement;
+﻿namespace PlanarActivityWS.src.Domain;
 
 public class Activity : BaseEntity
 {

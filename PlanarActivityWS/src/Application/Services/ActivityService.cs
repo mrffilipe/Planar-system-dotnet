@@ -1,6 +1,6 @@
-﻿using PlanarSystemWS.src.Domain.ActivityManagement;
+﻿using PlanarActivityWS.src.Domain;
 
-namespace PlanarSystemWS.src.Application.ActivityManagement;
+namespace PlanarActivityWS.src.Application;
 
 public class ActivityService : IActivityService
 {
