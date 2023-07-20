@@ -21,7 +21,7 @@ public class NotificationAdapter : INotificationAdapter
         throw new NotImplementedException();
     }
 
-    public Task<ICollection<ReplyNotificationDTO>> FindNotificationsByUserId(ObjectId id)
+    public Task<ICollection<ReplyNotificationDTO>> FindNotifications()
     {
         throw new NotImplementedException();
     }

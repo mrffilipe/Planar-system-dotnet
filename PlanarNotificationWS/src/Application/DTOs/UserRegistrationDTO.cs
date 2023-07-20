@@ -6,5 +6,5 @@ public class UserRegistrationDTO
 {
     public string UserName { get; set; }
     public string Email { get; set; }
-    public Phone Phone { get; }
+    public Phone Phone { get; set; }
 }

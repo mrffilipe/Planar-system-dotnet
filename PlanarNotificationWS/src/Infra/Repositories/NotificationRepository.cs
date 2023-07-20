@@ -12,7 +12,7 @@ public class NotificationRepository : INotificationRepository
         throw new NotImplementedException();
     }
 
-    public Task<ICollection<Notification>> FindNotificationsByUserId(ObjectId id)
+    public Task<ICollection<Notification>> FindNotificationsByUserId(ObjectId userId)
     {
         throw new NotImplementedException();
     }

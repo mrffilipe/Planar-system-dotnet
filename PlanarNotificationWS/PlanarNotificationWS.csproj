@@ -16,11 +16,9 @@
 
   <ItemGroup>
     <Folder Include="src\Infra\Interfaces\" />
-    <Folder Include="src\Infra\Extensions\" />
     <Folder Include="src\Infra\Eventing\" />
     <Folder Include="src\Infra\Config\" />
     <Folder Include="src\Presentation\Filters\" />
-    <Folder Include="src\Presentation\Controllers\" />
   </ItemGroup>
 
 </Project>

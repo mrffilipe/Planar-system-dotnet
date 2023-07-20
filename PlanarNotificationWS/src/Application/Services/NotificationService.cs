@@ -17,7 +17,7 @@ public class NotificationService : INotificationService
         throw new NotImplementedException();
     }
 
-    public Task<ICollection<Notification>> FindNotificationsByUserId(ObjectId id)
+    public Task<ICollection<Notification>> FindNotificationsByUserId()
     {
         throw new NotImplementedException();
     }
