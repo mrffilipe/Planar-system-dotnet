@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddConsul()
     .AddEventHandlers()
     .AddDbContexts()
     .AddAdapters()
@@ -26,6 +27,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseConsul();
 
 app.UseHttpsRedirection();
 

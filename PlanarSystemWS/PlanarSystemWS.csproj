@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Consul" Version="1.6.10.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -49,6 +50,7 @@
     <Folder Include="src\Domain\CustomerManagement\Interfaces\" />
     <Folder Include="src\Domain\SalesManagement\ValueObjects\" />
     <Folder Include="src\Infra\Repositories\SalesManagement\" />
+    <Folder Include="src\Presentation\ApplicationManagement\Filters\" />
     <Folder Include="src\Presentation\AddressManagement\Filters\" />
     <Folder Include="src\Presentation\SolarEnergyManagement\Filters\" />
     <Folder Include="src\Presentation\CustomerManagement\Filters\" />

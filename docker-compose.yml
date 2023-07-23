@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  consul-server:
+    image: consul:1.10.3  # Especifica a versão do Consul desejada
+    container_name: consul-server
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    #volumes:
+    #  - ./consul-data:/consul/data
+    command: "agent -server -ui -bootstrap-expect=1 -client=0.0.0.0"
