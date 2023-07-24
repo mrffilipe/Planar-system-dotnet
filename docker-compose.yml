@@ -2,7 +2,7 @@ version: '3'
 
 services:
   consul-server:
-    image: consul:1.10.3  # Especifica a versão do Consul desejada
+    image: consul:1.10.3
     container_name: consul-server
     ports:
       - "8500:8500"
@@ -10,3 +10,30 @@ services:
     #volumes:
     #  - ./consul-data:/consul/data
     command: "agent -server -ui -bootstrap-expect=1 -client=0.0.0.0"
+
+  rabbitmq-server:
+    image: rabbitmq:3.12-management
+    container_name: rabbitmq-server
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/mnesia
+
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mongo_network
+
+volumes:
+  rabbitmq_data:
+  mongo_data:
+
+networks:
+  mongo_network:
