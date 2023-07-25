@@ -1,29 +1,64 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using PlanarUserAccountWS.src.Domain;
 
 namespace PlanarUserAccountWS.src.Infra;
 
 public class UserAccountRepository : IUserAccountRepository
 {
-    // ...
+    private readonly IMongoClient _client;
+    private readonly IMongoDatabase _database;
+    private readonly IMongoCollection<User> _users;
 
-    public Task RegisterUser(User user)
+    public UserAccountRepository(IMongoClient client)
     {
-        throw new NotImplementedException();
+        _client = client;
+        _database = _client.GetDatabase("planar-user-account-db");
+        _users = _database.GetCollection<User>("user-collection");
     }
 
-    public Task<User> FindUserById(ObjectId id)
+    public async Task RegisterUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _users.InsertOneAsync(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<User>> FindAllUsers()
+    public async Task<User> FindUserById(string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var filter = Builders<User>.Filter
+                .Eq(x => x.Id, ObjectId.Parse(id));
+
+            var user = await _users.Find(filter)
+                .FirstOrDefaultAsync();
+
+            return user;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateUser(User user)
+    public async Task<ICollection<User>> FindAllUsers()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var users = await _users.AsQueryable()
+                .ToListAsync();
+
+            return users;
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdateUser(User user)
+    {
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 }

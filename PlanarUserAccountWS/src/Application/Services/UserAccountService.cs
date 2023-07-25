@@ -1,29 +1,67 @@
-﻿using MongoDB.Bson;
+﻿using AutoMapper;
+using MongoDB.Bson;
 using PlanarUserAccountWS.src.Domain;
+using PlanarUserAccountWS.src.Infra;
 
 namespace PlanarUserAccountWS.src.Application;
 
 public class UserAccountService : IUserAccountService
 {
-    // ...
+    private readonly IUserAccountRepository _userAccountRepository;
+    private readonly IMapper _mapper;
+    private readonly EventProducer<RegisteredUserEvent> _registeredUserEventProducer;
 
-    public Task RegisterUser(User user)
+    public UserAccountService(
+        IUserAccountRepository userAccountRepository,
+        IMapper mapper,
+        EventProducer<RegisteredUserEvent> registeredUserEventProducer)
     {
-        throw new NotImplementedException();
+        _userAccountRepository = userAccountRepository;
+        _mapper = mapper;
+        _registeredUserEventProducer = registeredUserEventProducer;
     }
 
-    public Task<User> FindUserById(ObjectId id)
+    public async Task RegisterUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var userMap = _mapper.Map<RegisteredUserEvent>(user);
+
+            await _userAccountRepository.RegisterUser(user);
+
+            _registeredUserEventProducer.PublishEvent(userMap);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<User>> FindAllUsers()
+    public async Task<User> FindUserById(string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var user = await _userAccountRepository.FindUserById(id);
+
+            return user;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateUser(User user)
+    public async Task<ICollection<User>> FindAllUsers()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var users = await _userAccountRepository.FindAllUsers();
+
+            return users;
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdateUser(User user)
+    {
+        try
+        {
+            await _userAccountRepository.UpdateUser(user);
+        }
+        catch (Exception ex) { throw; }
     }
 }

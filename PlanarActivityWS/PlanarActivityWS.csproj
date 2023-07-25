@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\Infra\Config\" />
     <Folder Include="src\Infra\Interfaces\" />
     <Folder Include="src\Infra\Eventing\" />
-    <Folder Include="src\Infra\Config\" />
     <Folder Include="src\Presentation\Filters\" />
   </ItemGroup>
 

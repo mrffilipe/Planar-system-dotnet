@@ -16,23 +16,45 @@ public class UserAccountAdapter : IUserAccountAdapter
         _mapper = mapper;
     }
 
-    public Task RegisterUser(UserRegistrationDTO user)
+    public async Task RegisterUser(UserRegistrationDTO user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var userMap = _mapper.Map<User>(user);
+
+            await _userAccountService.RegisterUser(userMap);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ReplyUserDTO> FindUserById(ObjectId id)
+    public async Task<ReplyUserDTO> FindUserById(string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var user = await _userAccountService.FindUserById(id);
+
+            return _mapper.Map<ReplyUserDTO>(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<ReplyUserDTO>> FindAllUsers()
+    public async Task<ICollection<ReplyUserDTO>> FindAllUsers()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var users = await _userAccountService.FindAllUsers();
+
+            return _mapper.Map<ICollection<ReplyUserDTO>>(users);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateUser(UserRegistrationDTO user)
+    public async Task UpdateUser(UserRegistrationDTO user)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 }

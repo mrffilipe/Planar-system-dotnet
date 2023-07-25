@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using PlanarUserAccountWS.src.Application;
+using PlanarUserAccountWS.src.Infra.Controllers;
 
 namespace PlanarUserAccountWS.src.Presentation.Controllers;
 
-public class UserAccountController
+public class UserAccountController : BaseController
 {
     private readonly IUserAccountAdapter _userAccountAdapter;
 
@@ -26,7 +27,7 @@ public class UserAccountController
 
     [HttpGet]
     [Route("find-user-by-id")]
-    public async Task<ReplyUserDTO> FindUserById([FromQuery] ObjectId id)
+    public async Task<ReplyUserDTO> FindUserById([FromQuery] string id)
     {
         try
         {
