@@ -29,6 +29,13 @@ public class EventProducer<TEvent> where TEvent : BaseEvent
                     durable: true,
                     exclusive: false,
                     autoDelete: false,
+                    arguments : null
+                );
+
+            channel.QueueBind(
+                    queue: @event.Queue,
+                    exchange: @event.Exchange,
+                    routingKey: @event.RoutingKey,
                     arguments: null
                 );
 
@@ -41,6 +48,8 @@ public class EventProducer<TEvent> where TEvent : BaseEvent
                     basicProperties: props,
                     body: @event.GetSerializationBytes()
                 );
+
+            channel.Close();
         }
     }
 }

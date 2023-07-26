@@ -15,7 +15,7 @@ builder.Services
     .AddMongoDb()
     .AddAdapters()
     .AddServices()
-    .AddEvents()
+    .AddEventHandlers()
     .AddRepositories()
     .AddAutoMapper(typeof(Program));
 

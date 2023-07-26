@@ -11,28 +11,50 @@ public class ActivityService : IActivityService
         _activityRepository = activityRepository;
     }
 
-    public Task SaveActivity(Activity activity)
+    public async Task SaveActivity(Activity activity)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<Activity>> FindActivities()
+    public async Task<ICollection<Activity>> FindActivities()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var activities = await _activityRepository.FindActivitiesByUserId("");
+
+            return activities;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateActivity(Activity activity)
+    public async Task UpdateActivity(Activity activity)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task SaveUser(User user)
+    public async Task SaveUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _activityRepository.SaveUser(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateUser(User user)
+    public async Task UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+
+        }
+        catch (Exception ex) { throw; }
     }
 }

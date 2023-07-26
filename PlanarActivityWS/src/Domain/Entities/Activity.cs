@@ -1,11 +1,9 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace PlanarActivityWS.src.Domain;
 
 public class Activity : BaseEntity
 {
-    [BsonId]
     public ObjectId UserId { get; private set; }
     public ActivityRelationship Relationship { get; private set; }
     public ActivityStatus Status { get; private set; }

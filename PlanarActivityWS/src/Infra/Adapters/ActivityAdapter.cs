@@ -1,4 +1,5 @@
-﻿using PlanarActivityWS.src.Application;
+﻿using AutoMapper;
+using PlanarActivityWS.src.Application;
 using PlanarActivityWS.src.Domain;
 
 namespace PlanarActivityWS.src.Infra;
@@ -6,34 +7,22 @@ namespace PlanarActivityWS.src.Infra;
 public class ActivityAdapter : IActivityAdapter
 {
     private readonly IActivityService _activityService;
+    private readonly IMapper _mapper;
 
-    public ActivityAdapter(IActivityService activityService)
+    public ActivityAdapter(IActivityService activityService, IMapper mapper)
     {
         _activityService = activityService;
+        _mapper = mapper;
     }
 
-    public Task SaveActivity(ActivityRegistrationDTO activity)
+    public async Task<ICollection<ReplyActivityDTO>> FindActivities()
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            var activities = await _activityService.FindActivities();
 
-    public Task<ICollection<ReplyActivityDTO>> FindActivities()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateActivity(ActivityRegistrationDTO activity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task SaveUser(UserRegistrationDTO user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateUser(UserRegistrationDTO user)
-    {
-        throw new NotImplementedException();
+            return _mapper.Map<ICollection<ReplyActivityDTO>>(activities);
+        }
+        catch (Exception ex) { throw; }
     }
 }

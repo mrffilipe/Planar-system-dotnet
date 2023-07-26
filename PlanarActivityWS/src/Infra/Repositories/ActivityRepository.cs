@@ -25,12 +25,12 @@ public class ActivityRepository : IActivityRepository
         throw new NotImplementedException();
     }
 
-    public async Task<ICollection<Activity>> FindActivitiesByUserId(ObjectId userId)
+    public async Task<ICollection<Activity>> FindActivitiesByUserId(string userId)
     {
         try
         {
             var filter = Builders<Activity>.Filter
-                .Eq(x => x.UserId, userId);
+                .Eq(x => x.UserId, ObjectId.Parse(userId));
 
             var activities = await _activity.Find(filter)
                 .ToListAsync();
@@ -47,7 +47,11 @@ public class ActivityRepository : IActivityRepository
 
     public async Task SaveUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _user.InsertOneAsync(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
     public async Task UpdateUser(User user)
