@@ -1,4 +1,6 @@
-﻿namespace PlanarActivityWS.src.Infra;
+﻿using PlanarActivityWS.src.Domain;
+
+namespace PlanarActivityWS.src.Infra;
 
 public static class RabbitMQExtensions
 {
@@ -6,7 +8,7 @@ public static class RabbitMQExtensions
     {
         services.AddSingleton<IRabbitMQService, RabbitMQService>();
 
-        services.AddHostedService<EventConsumer>();
+        services.AddHostedService<UserEventConsumer<RegisteredUserEvent>>();
 
         return services;
     }

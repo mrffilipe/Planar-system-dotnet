@@ -6,6 +6,7 @@ public class RegisteredUserEvent : BaseEvent
     public string Email { get; private set; }
     public ICollection<UserRole> Roles { get; private set; }
     public ICollection<UserClaim> Claims { get; private set; }
+    public string EventTypeName { get; protected set; } = "RegisteredUserEvent";
     public override string Queue { get; protected set; } = "new-registered-user";
     public override string Exchange { get; protected set; } = "ex";
     public override string RoutingKey { get; protected set; } = "";
