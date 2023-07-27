@@ -2,7 +2,7 @@
 
 namespace PlanarActivityWS.src.Infra;
 
-public class UserEventConsumer<TEvent> : EventConsumer<TEvent> where TEvent : BaseEvent
+public class UserEventConsumer<TEvent> : EventConsumer<TEvent> where TEvent : IEvent
 {
     private const string QUEUE_NAME = "new-registered-user";
 

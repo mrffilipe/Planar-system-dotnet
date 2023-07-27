@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PlanarActivityWS.src.Infra;
 
-public abstract class EventConsumer<TEvent> : BackgroundService where TEvent : BaseEvent
+public abstract class EventConsumer<TEvent> : BackgroundService where TEvent : IEvent
 {
     private readonly IConnection _connection;
     private readonly IModel _channel;
