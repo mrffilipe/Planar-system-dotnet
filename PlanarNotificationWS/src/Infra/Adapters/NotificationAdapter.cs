@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MongoDB.Bson;
 using PlanarNotificationWS.src.Application;
 using PlanarNotificationWS.src.Domain;
 
@@ -16,28 +15,25 @@ public class NotificationAdapter : INotificationAdapter
         _mapper = mapper;
     }
 
-    public Task SaveNotification(NotificationRegistrationDTO notification)
+    public async Task<IList<ReplyNotificationDTO>> FindNotifications()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var notifications = await _notificationService.FindNotificationsByUserId(); // id do identity
+
+            return _mapper.Map<IList<ReplyNotificationDTO>>(notifications);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<ReplyNotificationDTO>> FindNotifications()
+    public async Task UpdateNotification(UpdateNotificationDTO notification)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            var notificationMap = _mapper.Map<Notification>(notification);
 
-    public Task UpdateNotification(NotificationRegistrationDTO notification)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task SaveUser(UserRegistrationDTO user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateUser(UserRegistrationDTO user)
-    {
-        throw new NotImplementedException();
+            await _notificationService.UpdateNotification(notificationMap);
+        }
+        catch (Exception ex) { throw; }
     }
 }

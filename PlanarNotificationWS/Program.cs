@@ -11,9 +11,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddMongoDb()
+    .AddEventHandlers()
     .AddAdapters()
     .AddServices()
     .AddRepositories()
+    .AddRabbitMQ()
     .AddAutoMapper(typeof(Program));
 
 var app = builder.Build();

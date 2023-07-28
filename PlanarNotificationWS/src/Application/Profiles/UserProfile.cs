@@ -7,6 +7,14 @@ public class UserProfile : Profile
 {
     public UserProfile()
     {
-        CreateMap<UserRegistrationDTO, User>();
+        CreateMap<RegisteredUserEvent, User>()
+            .ConstructUsing(source => new User(
+                source.UserAccountId,
+                source.FirstName,
+                source.LastName,
+                source.Email,
+                source.Phone
+                )
+            );
     }
 }

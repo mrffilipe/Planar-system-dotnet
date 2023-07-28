@@ -24,11 +24,8 @@ public class User : BaseEntity
         string firstName,
         string lastName,
         IList<Activity> activities
-        ) : base()
+        ) : this(userId, firstName, lastName)
     {
-        UserAccountId = userId;
-        FirstName = firstName;
-        LastName = lastName;
         Activities = activities;
     }
 }

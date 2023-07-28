@@ -1,16 +1,15 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using PlanarNotificationWS.src.Domain;
+﻿using PlanarNotificationWS.src.Domain;
 
 namespace PlanarNotificationWS.src.Application;
 
-public class ReplyNotificationDTO
+public class ReplyNotificationDTO : IEntityDTO
 {
-    [BsonId]
-    public ObjectId UserId { get; set; }
+    public string Id { get; set; }
     public NotificationRelationship Relationship { get; set; }
     public string Text { get; set; }
     public bool Read { get; set; }
-    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
     public DateTime DateRead { get; set; }
+    public string UserAccountId { get; set; }
+    public DateTime CreatedOn { get; set; }
+    public DateTime UpdatedOn { get; set; }
 }

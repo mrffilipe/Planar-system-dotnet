@@ -14,7 +14,7 @@ public class NotificationController : BaseController
 
     [HttpGet]
     [Route("find-notifications")]
-    public async Task<ICollection<ReplyNotificationDTO>> FindNotificationsByUserId()
+    public async Task<IList<ReplyNotificationDTO>> FindNotificationsByUserId()
     {
         try
         {
@@ -27,7 +27,7 @@ public class NotificationController : BaseController
 
     [HttpPut]
     [Route("update-notification")]
-    public async Task UpdateNotification([FromBody] NotificationRegistrationDTO notification)
+    public async Task UpdateNotification([FromBody] UpdateNotificationDTO notification)
     {
         try
         {

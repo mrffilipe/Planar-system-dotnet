@@ -9,15 +9,14 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Consul" Version="1.6.10.9" />
     <PackageReference Include="MongoDB.Driver" Version="2.20.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\Infra\Interfaces\" />
-    <Folder Include="src\Infra\Eventing\" />
-    <Folder Include="src\Infra\Config\" />
     <Folder Include="src\Presentation\Filters\" />
   </ItemGroup>
 

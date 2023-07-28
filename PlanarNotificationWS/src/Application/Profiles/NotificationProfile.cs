@@ -7,7 +7,21 @@ public class NotificationProfile : Profile
 {
     public NotificationProfile()
     {
-        CreateMap<NotificationRegistrationDTO, Notification>();
         CreateMap<Notification, ReplyNotificationDTO>();
+        CreateMap<UpdateNotificationDTO, Notification>()
+            .ConstructUsing(source => new Notification(
+                source.Relationship,
+                source.Text,
+                source.UserAccountId
+                )
+            );
+
+        CreateMap<RegisteredNotificationEvent, Notification>()
+            .ConstructUsing(source => new Notification(
+                source.Relationship,
+                source.Text,
+                source.UserAccountId
+                )
+            );
     }
 }

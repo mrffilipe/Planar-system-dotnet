@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson;
-using PlanarNotificationWS.src.Domain;
+﻿using PlanarNotificationWS.src.Domain;
 
 namespace PlanarNotificationWS.src.Application;
 
@@ -12,28 +11,50 @@ public class NotificationService : INotificationService
         _notificationRepository = notificationRepository;
     }
 
-    public Task SaveNotification(Notification notification)
+    public async Task SaveNotification(Notification notification)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _notificationRepository.SaveNotification(notification);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task<ICollection<Notification>> FindNotificationsByUserId()
+    public async Task<IList<Notification>> FindNotificationsByUserId()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var notifications = await _notificationRepository.FindNotificationsByUserId(""); // passar id do identity
+
+            return notifications;
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateNotification(Notification notification)
+    public async Task UpdateNotification(Notification notification)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _notificationRepository.UpdateNotification(notification);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task SaveUser(User user)
+    public async Task SaveUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _notificationRepository.SaveUser(user);
+        }
+        catch (Exception ex) { throw; }
     }
 
-    public Task UpdateUser(User user)
+    public async Task UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _notificationRepository.UpdateUser(user);
+        }
+        catch (Exception ex) { throw; }
     }
 }
