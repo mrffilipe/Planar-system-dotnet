@@ -15,16 +15,16 @@ public class ActivityService : IActivityService
     {
         try
         {
-
+            await _activityRepository.SaveActivity(activity);
         }
         catch (Exception ex) { throw; }
     }
 
-    public async Task<ICollection<Activity>> FindActivities()
+    public async Task<IList<Activity>> FindActivities()
     {
         try
         {
-            var activities = await _activityRepository.FindActivitiesByUserId("");
+            var activities = await _activityRepository.FindActivitiesByUserId(""); // fornecer o id do identity
 
             return activities;
         }
@@ -35,7 +35,7 @@ public class ActivityService : IActivityService
     {
         try
         {
-
+            await _activityRepository.UpdateActivity(activity);
         }
         catch (Exception ex) { throw; }
     }
@@ -53,7 +53,7 @@ public class ActivityService : IActivityService
     {
         try
         {
-
+            await _activityRepository.UpdateUser(user);
         }
         catch (Exception ex) { throw; }
     }

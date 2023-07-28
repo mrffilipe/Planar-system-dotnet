@@ -15,7 +15,7 @@ public class ActivityController : BaseController
 
     [HttpGet]
     [Route("find-activities")]
-    public async Task<ICollection<ReplyActivityDTO>> FindActivities()
+    public async Task<IList<ReplyActivityDTO>> FindActivities()
     {
         try
         {

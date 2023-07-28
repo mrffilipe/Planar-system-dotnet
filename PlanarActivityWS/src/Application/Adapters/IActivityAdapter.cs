@@ -2,5 +2,5 @@
 
 public interface IActivityAdapter
 {
-    Task<ICollection<ReplyActivityDTO>> FindActivities();
+    Task<IList<ReplyActivityDTO>> FindActivities();
 }

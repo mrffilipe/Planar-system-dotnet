@@ -1,13 +1,13 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-using PlanarActivityWS.src.Domain;
+﻿using PlanarActivityWS.src.Domain;
 
 namespace PlanarActivityWS.src.Application;
 
-public class ReplyActivityDTO
+public class ReplyActivityDTO : IEntityDTO
 {
-    [BsonId]
-    public ObjectId UserId { get; set; }
+    public string Id { get; set; }
     public ActivityRelationship Relationship { get; set; }
     public ActivityStatus Status { get; set; }
+    public string UserAccountId { get; set; }
+    public DateTime CreatedOn { get; set; }
+    public DateTime UpdatedOn { get; set; }
 }

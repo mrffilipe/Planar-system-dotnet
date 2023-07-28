@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Consul;
+using Newtonsoft.Json;
 using PlanarActivityWS.src.Domain;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
+using System.Threading.Channels;
 
 namespace PlanarActivityWS.src.Infra;
 
@@ -51,6 +53,14 @@ public abstract class EventConsumer<TEvent> : BackgroundService where TEvent : I
                 }
                 catch (Exception ex) { throw; }
             };
+
+            _channel.QueueDeclare(
+                    queue: _queueName,
+                    durable: true,
+                    exclusive: false,
+                    autoDelete: false,
+                    arguments: null
+                );
 
             _channel.BasicConsume(
                        queue: _queueName,

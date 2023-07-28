@@ -15,13 +15,13 @@ public class ActivityAdapter : IActivityAdapter
         _mapper = mapper;
     }
 
-    public async Task<ICollection<ReplyActivityDTO>> FindActivities()
+    public async Task<IList<ReplyActivityDTO>> FindActivities()
     {
         try
         {
             var activities = await _activityService.FindActivities();
 
-            return _mapper.Map<ICollection<ReplyActivityDTO>>(activities);
+            return _mapper.Map<IList<ReplyActivityDTO>>(activities);
         }
         catch (Exception ex) { throw; }
     }

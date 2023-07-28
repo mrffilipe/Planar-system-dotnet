@@ -1,14 +1,15 @@
-﻿using MongoDB.Bson;
+﻿namespace PlanarActivityWS.src.Domain;
 
-namespace PlanarActivityWS.src.Domain;
-
-public class Activity : BaseEntity
+public class RegisteredActivityEvent : IEvent
 {
     public ActivityRelationship Relationship { get; private set; }
     public ActivityStatus Status { get; private set; }
     public string UserAccountId { get; private set; }
+    public string Queue => "new-registered-activity";
+    public string Exchange => "ex";
+    public string RoutingKey => "";
 
-    public Activity(
+    public RegisteredActivityEvent(
         ActivityRelationship relationship,
         ActivityStatus status,
         string userAccountId
@@ -17,10 +18,5 @@ public class Activity : BaseEntity
         Relationship = relationship;
         Status = status;
         UserAccountId = userAccountId;
-    }
-
-    public void ChangeStatus(ActivityStatus status)
-    {
-        if (status != Status) Status = status;
     }
 }

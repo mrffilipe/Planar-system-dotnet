@@ -2,11 +2,33 @@
 
 public class User : BaseEntity
 {
-    public string UserName { get; private set; }
-    public string Email { get; private set; }
-    public User(string userName, string email)
+    public string UserAccountId { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public IList<Activity> Activities { get; private set; }
+
+    public User(
+       string userId,
+       string firstName,
+       string lastName
+       )
     {
-        UserName = userName;
-        Email = email;
+        UserAccountId = userId;
+        FirstName = firstName;
+        LastName = lastName;
+        Activities = new List<Activity>();
+    }
+
+    public User(
+        string userId,
+        string firstName,
+        string lastName,
+        IList<Activity> activities
+        ) : base()
+    {
+        UserAccountId = userId;
+        FirstName = firstName;
+        LastName = lastName;
+        Activities = activities;
     }
 }

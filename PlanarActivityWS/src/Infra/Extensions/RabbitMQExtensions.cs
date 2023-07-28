@@ -8,7 +8,10 @@ public static class RabbitMQExtensions
     {
         services.AddSingleton<IRabbitMQService, RabbitMQService>();
 
-        services.AddHostedService<UserEventConsumer<RegisteredUserEvent>>();
+        services.AddHostedService<RegisteredUserEventConsumer<RegisteredUserEvent>>();
+        services.AddHostedService<UpdatedUserEventConsumer<RegisteredUserEvent>>();
+        services.AddHostedService<RegisteredActivityEventConsumer<RegisteredUserEvent>>();
+        services.AddHostedService<UpdatedActivityEventConsumer<RegisteredUserEvent>>();
 
         return services;
     }

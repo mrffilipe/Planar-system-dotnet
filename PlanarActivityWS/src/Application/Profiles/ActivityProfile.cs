@@ -7,7 +7,22 @@ public class ActivityProfile : Profile
 {
     public ActivityProfile()
     {
-        CreateMap<ActivityRegistrationDTO, Activity>();
         CreateMap<Activity, ReplyActivityDTO>();
+
+        CreateMap<RegisteredActivityEvent, Activity>()
+            .ConstructUsing(source => new Activity(
+                source.Relationship,
+                source.Status,
+                source.UserAccountId
+            )
+        );
+
+        CreateMap<UpdatedActivityEvent, Activity>()
+            .ConstructUsing(source => new Activity(
+                source.Relationship,
+                source.Status,
+                source.UserAccountId
+            )
+        );
     }
 }

@@ -1,15 +1,15 @@
 ﻿namespace PlanarActivityWS.src.Domain;
 
-public class RegisteredUserEvent : IEvent
+public class UpdatedUserEvent : IEvent
 {
     public string UserAccountId { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public string Queue => "new-registered-user";
+    public string Queue => "updated-user";
     public string Exchange => "ex";
     public string RoutingKey => "";
 
-    public RegisteredUserEvent(
+    public UpdatedUserEvent(
         string userAccountId,
         string firstName,
         string lastName
