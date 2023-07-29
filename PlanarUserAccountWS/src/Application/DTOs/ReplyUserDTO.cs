@@ -1,12 +1,11 @@
-﻿using PlanarUserAccountWS.src.Domain;
+﻿namespace PlanarUserAccountWS.src.Application;
 
-namespace PlanarUserAccountWS.src.Application;
-
-public class ReplyUserDTO
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Email { get; set; }
-    public ICollection<RefUserRole> Roles { get; set; }
-    public ICollection<RefUserClaim> Claims { get; set; }
-}
+public record ReplyUserDTO(
+    Guid Id,
+    string FirstName,
+    string LastName,
+    string Email,
+    ICollection<ReplyClaimDTO> Claims,
+    DateTime CreatedOn,
+    DateTime UpdatedOn
+    );

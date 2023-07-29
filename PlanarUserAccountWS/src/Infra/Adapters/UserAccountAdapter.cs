@@ -58,4 +58,37 @@ public class UserAccountAdapter : IUserAccountAdapter
         }
         catch (Exception ex) { throw; }
     }
+
+    public async Task AddClaimToUser(AddClaimDTO claim)
+    {
+        try
+        {
+            var claimMap = _mapper.Map<RefUserClaim>(claim);
+
+            await _userAccountService.AddClaimToUser(claimMap);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdateUserClaim(UpdateClaimDTO claim)
+    {
+        try
+        {
+            var claimMap = _mapper.Map<RefUserClaim>(claim);
+
+            await _userAccountService.UpdateUserClaim(claimMap);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task RemoveUserClaim(RemoveClaimDTO claim)
+    {
+        try
+        {
+            var claimMap = _mapper.Map<RefUserClaim>(claim);
+
+            await _userAccountService.RemoveUserClaim(claimMap);
+        }
+        catch (Exception ex) { throw; }
+    }
 }

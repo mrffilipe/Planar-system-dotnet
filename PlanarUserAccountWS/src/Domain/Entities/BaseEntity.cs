@@ -2,7 +2,7 @@
 
 public abstract class BaseEntity : IEntity<Guid>
 {
-    public Guid Id { get; private set; }
-    public DateTime CreatedOn { get; private set; }
-    public DateTime UpdatedOn { get; private set; }
+    public Guid Id { get; protected set; }
+    public DateTime CreatedOn { get; protected set; }
+    public DateTime UpdatedOn { get; protected set; }
 }

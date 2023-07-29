@@ -29,7 +29,7 @@ public class UserAccountService : IUserAccountService
 
             await _userAccountRepository.RegisterUser(user);
 
-            _registeredUserEventProducer.PublishEvent(userEventMap);
+            //_registeredUserEventProducer.PublishEvent(userEventMap);
         }
         catch (Exception ex) { throw; }
     }
@@ -61,6 +61,33 @@ public class UserAccountService : IUserAccountService
         try
         {
             await _userAccountRepository.UpdateUser(user);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task AddClaimToUser(RefUserClaim claim)
+    {
+        try
+        {
+            await _userAccountRepository.AddClaimToUser(claim);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task UpdateUserClaim(RefUserClaim claim)
+    {
+        try
+        {
+            await _userAccountRepository.UpdateUserClaim(claim);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    public async Task RemoveUserClaim(RefUserClaim claim)
+    {
+        try
+        {
+            await _userAccountRepository.RemoveUserClaim(claim);
         }
         catch (Exception ex) { throw; }
     }

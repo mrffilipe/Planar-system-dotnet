@@ -16,6 +16,7 @@ builder.Services
     .AddServices()
     .AddEventHandlers()
     .AddRepositories()
+    .AddDbContexts()
     .AddAutoMapper(typeof(Program));
 
 var app = builder.Build();

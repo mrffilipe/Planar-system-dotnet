@@ -10,9 +10,23 @@ public class RefUserClaim : BaseEntity
     {
     }
 
-    public RefUserClaim(UserClaim userClaim, User user)
+    public RefUserClaim(UserClaim userClaim)
     {
         UserClaim = userClaim;
-        User = user;
+    }
+
+    public RefUserClaim(Guid id, UserClaim userClaim) : this(userClaim)
+    {
+        Id = id;
+    }
+
+    public RefUserClaim(UserClaim userClaim, Guid userId) : this(userClaim)
+    {
+        UserId = userId;
+    }
+
+    public RefUserClaim(Guid id, UserClaim userClaim, Guid userId) : this(userClaim, userId)
+    {
+        Id = id;
     }
 }

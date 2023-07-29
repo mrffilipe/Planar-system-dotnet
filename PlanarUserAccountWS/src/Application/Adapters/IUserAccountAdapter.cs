@@ -1,4 +1,6 @@
-﻿namespace PlanarUserAccountWS.src.Application;
+﻿using PlanarUserAccountWS.src.Domain;
+
+namespace PlanarUserAccountWS.src.Application;
 
 public interface IUserAccountAdapter
 {
@@ -6,4 +8,7 @@ public interface IUserAccountAdapter
     Task<ReplyUserDTO> FindUserById(Guid id);
     Task<ICollection<ReplyUserDTO>> FindAllUsers();
     Task UpdateUser(UpdateUserDTO user);
+    Task AddClaimToUser(AddClaimDTO claim);
+    Task UpdateUserClaim(UpdateClaimDTO claim);
+    Task RemoveUserClaim(RemoveClaimDTO claim);
 }

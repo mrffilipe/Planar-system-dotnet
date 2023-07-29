@@ -24,6 +24,16 @@ public class User : BaseEntity
     }
 
     public User(
+        Guid id,
+        string firstName,
+        string lastName,
+        string email
+        ) : this(firstName, lastName, email)
+    {
+        Id = id;
+    }
+
+    public User(
         string firstName,
         string lastName,
         string email,

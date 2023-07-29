@@ -60,4 +60,37 @@ public class UserAccountController : BaseController
         }
         catch (Exception ex) { throw; }
     }
+
+    [HttpPost]
+    [Route("add-claim-to-user")]
+    public async Task AddClaimToUser([FromBody] AddClaimDTO claim)
+    {
+        try
+        {
+            await _userAccountAdapter.AddClaimToUser(claim);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    [HttpPut]
+    [Route("update-user-claim")]
+    public async Task UpdateUserClaim([FromBody] UpdateClaimDTO claim)
+    {
+        try
+        {
+            await _userAccountAdapter.UpdateUserClaim(claim);
+        }
+        catch (Exception ex) { throw; }
+    }
+
+    [HttpDelete]
+    [Route("remove-user-claim")]
+    public async Task RemoveUserClaim([FromBody] RemoveClaimDTO claim)
+    {
+        try
+        {
+            await _userAccountAdapter.RemoveUserClaim(claim);
+        }
+        catch (Exception ex) { throw; }
+    }
 }
