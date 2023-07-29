@@ -1,5 +1,6 @@
 ﻿namespace PlanarUserAccountWS.src.Domain;
 
-public record UserRole(
-    
-    );
+public class RefUserRole : BaseEntity
+{
+
+}

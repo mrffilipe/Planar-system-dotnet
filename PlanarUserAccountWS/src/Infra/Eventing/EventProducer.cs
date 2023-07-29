@@ -1,9 +1,11 @@
-﻿using PlanarUserAccountWS.src.Domain;
+﻿using Newtonsoft.Json;
+using PlanarUserAccountWS.src.Domain;
 using RabbitMQ.Client;
+using System.Text;
 
 namespace PlanarUserAccountWS.src.Infra;
 
-public class EventProducer<TEvent> where TEvent : BaseEvent
+public class EventProducer<TEvent> where TEvent : IEvent
 {
     private readonly IConnection _connection;
 
@@ -29,7 +31,7 @@ public class EventProducer<TEvent> where TEvent : BaseEvent
                     durable: true,
                     exclusive: false,
                     autoDelete: false,
-                    arguments : null
+                    arguments: null
                 );
 
             channel.QueueBind(
@@ -46,10 +48,18 @@ public class EventProducer<TEvent> where TEvent : BaseEvent
                     exchange: @event.Exchange,
                     routingKey: @event.RoutingKey,
                     basicProperties: props,
-                    body: @event.GetSerializationBytes()
+                    body: GetSerializationBytes(@event)
                 );
 
             channel.Close();
         }
+    }
+
+    private static Byte[] GetSerializationBytes(TEvent @event)
+    {
+        var serialize = JsonConvert.SerializeObject(@event);
+        var bytes = Encoding.UTF8.GetBytes(serialize);
+
+        return bytes;
     }
 }

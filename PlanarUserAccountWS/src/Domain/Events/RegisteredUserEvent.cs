@@ -1,24 +1,39 @@
-﻿namespace PlanarUserAccountWS.src.Domain;
+﻿using System.Collections.ObjectModel;
 
-public class RegisteredUserEvent : BaseEvent
+namespace PlanarUserAccountWS.src.Domain;
+
+public class RegisteredUserEvent : IEvent
 {
-    public string UserName { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public string Email { get; private set; }
-    public ICollection<UserRole> Roles { get; private set; }
-    public ICollection<UserClaim> Claims { get; private set; }
-    public string EventTypeName { get; protected set; } = "RegisteredUserEvent";
-    public override string Queue { get; protected set; } = "new-registered-user";
-    public override string Exchange { get; protected set; } = "ex";
-    public override string RoutingKey { get; protected set; } = "";
+    public ICollection<RefUserRole> Roles { get; private set; }
+    public ICollection<RefUserClaim> Claims { get; private set; }
+    public string Queue => "new-registered-user";
+    public string Exchange => "ex";
+    public string RoutingKey => "";
 
-    protected RegisteredUserEvent(
-        string userName,
-        string email,
-        ICollection<UserRole> roles,
-        ICollection<UserClaim> claims)
+    public RegisteredUserEvent(
+       string firstName,
+       string lastName,
+       string email
+       )
     {
-        UserName = userName;
+        FirstName = firstName;
+        LastName = lastName;
         Email = email;
+        Roles = new Collection<RefUserRole>();
+        Claims = new Collection<RefUserClaim>();
+    }
+
+    public RegisteredUserEvent(
+        string firstName,
+        string lastName,
+        string email,
+        ICollection<RefUserRole> roles,
+        ICollection<RefUserClaim> claims
+        ) : this(firstName, lastName, email)
+    {
         Roles = roles;
         Claims = claims;
     }

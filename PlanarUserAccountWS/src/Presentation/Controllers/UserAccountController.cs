@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 using PlanarUserAccountWS.src.Application;
 using PlanarUserAccountWS.src.Infra.Controllers;
 
@@ -16,7 +15,7 @@ public class UserAccountController : BaseController
 
     [HttpPost]
     [Route("register-user")]
-    public async Task RegisterUser([FromBody] UserRegistrationDTO user)
+    public async Task RegisterUser([FromBody] RegisterUserDTO user)
     {
         try
         {
@@ -27,7 +26,7 @@ public class UserAccountController : BaseController
 
     [HttpGet]
     [Route("find-user-by-id")]
-    public async Task<ReplyUserDTO> FindUserById([FromQuery] string id)
+    public async Task<ReplyUserDTO> FindUserById([FromQuery] Guid id)
     {
         try
         {
@@ -53,7 +52,7 @@ public class UserAccountController : BaseController
 
     [HttpPut]
     [Route("update-user")]
-    public async Task UpdateUser([FromBody] UserRegistrationDTO user)
+    public async Task UpdateUser([FromBody] UpdateUserDTO user)
     {
         try
         {

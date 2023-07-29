@@ -12,7 +12,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddRabbitMQ()
-    .AddMongoDb()
     .AddAdapters()
     .AddServices()
     .AddEventHandlers()

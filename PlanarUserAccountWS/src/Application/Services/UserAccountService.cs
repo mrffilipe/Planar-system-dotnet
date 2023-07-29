@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MongoDB.Bson;
 using PlanarUserAccountWS.src.Domain;
 using PlanarUserAccountWS.src.Infra;
 
@@ -14,7 +13,8 @@ public class UserAccountService : IUserAccountService
     public UserAccountService(
         IUserAccountRepository userAccountRepository,
         IMapper mapper,
-        EventProducer<RegisteredUserEvent> registeredUserEventProducer)
+        EventProducer<RegisteredUserEvent> registeredUserEventProducer
+        )
     {
         _userAccountRepository = userAccountRepository;
         _mapper = mapper;
@@ -25,16 +25,16 @@ public class UserAccountService : IUserAccountService
     {
         try
         {
-            var userMap = _mapper.Map<RegisteredUserEvent>(user);
+            var userEventMap = _mapper.Map<RegisteredUserEvent>(user);
 
             await _userAccountRepository.RegisterUser(user);
 
-            _registeredUserEventProducer.PublishEvent(userMap);
+            _registeredUserEventProducer.PublishEvent(userEventMap);
         }
         catch (Exception ex) { throw; }
     }
 
-    public async Task<User> FindUserById(string id)
+    public async Task<User> FindUserById(Guid id)
     {
         try
         {

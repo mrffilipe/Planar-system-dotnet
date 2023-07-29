@@ -7,8 +7,9 @@ public class UserProfile : Profile
 {
     public UserProfile()
     {
-        CreateMap<UserRegistrationDTO, User>();
+        CreateMap<RegisterUserDTO, User>();
         CreateMap<User, ReplyUserDTO>();
+        CreateMap<UpdateUserDTO, User>();
 
         CreateMap<User, RegisteredUserEvent>();
     }

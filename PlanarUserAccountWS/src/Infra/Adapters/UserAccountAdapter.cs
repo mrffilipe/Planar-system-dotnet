@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MongoDB.Bson;
 using PlanarUserAccountWS.src.Application;
 using PlanarUserAccountWS.src.Domain;
 
@@ -16,7 +15,7 @@ public class UserAccountAdapter : IUserAccountAdapter
         _mapper = mapper;
     }
 
-    public async Task RegisterUser(UserRegistrationDTO user)
+    public async Task RegisterUser(RegisterUserDTO user)
     {
         try
         {
@@ -27,7 +26,7 @@ public class UserAccountAdapter : IUserAccountAdapter
         catch (Exception ex) { throw; }
     }
 
-    public async Task<ReplyUserDTO> FindUserById(string id)
+    public async Task<ReplyUserDTO> FindUserById(Guid id)
     {
         try
         {
@@ -49,11 +48,13 @@ public class UserAccountAdapter : IUserAccountAdapter
         catch (Exception ex) { throw; }
     }
 
-    public async Task UpdateUser(UserRegistrationDTO user)
+    public async Task UpdateUser(UpdateUserDTO user)
     {
         try
         {
+            var userMap = _mapper.Map<User>(user);
 
+            await _userAccountService.UpdateUser(userMap);
         }
         catch (Exception ex) { throw; }
     }

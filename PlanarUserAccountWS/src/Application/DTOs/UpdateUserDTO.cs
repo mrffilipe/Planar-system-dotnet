@@ -2,7 +2,7 @@
 
 namespace PlanarUserAccountWS.src.Application;
 
-public class ReplyUserDTO
+public class UpdateUserDTO
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
