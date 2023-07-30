@@ -11,6 +11,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddHttpContextAccessor()
+    .AddAdapters()
+    .AddEventHandlers()
+    .AddRabbitMQ()
+    .AddRepositories()
+    .AddServices()
+    .AddAutoMapper(typeof(Program))
     .AddMySqlDbContext()
     .AddIdentity();
 

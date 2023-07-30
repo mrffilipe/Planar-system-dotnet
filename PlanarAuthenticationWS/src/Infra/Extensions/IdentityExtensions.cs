@@ -7,6 +7,10 @@ public static class IdentityExtensions
 {
     public static IServiceCollection AddIdentity(this IServiceCollection services)
     {
+        services
+            .AddScoped<UserManager<CustomIdentityUser>>()
+            .AddScoped<SignInManager<CustomIdentityUser>>();
+
         services.AddIdentityCore<CustomIdentityUser>(options =>
         {
             options.SignIn.RequireConfirmedAccount = true;
