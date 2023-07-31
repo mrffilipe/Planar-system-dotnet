@@ -57,7 +57,12 @@ public class EventProducer<TEvent> where TEvent : IEvent
 
     private static Byte[] GetSerializationBytes(TEvent @event)
     {
-        var serialize = JsonConvert.SerializeObject(@event);
+        var settings = new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        };
+
+        var serialize = JsonConvert.SerializeObject(@event, settings);
         var bytes = Encoding.UTF8.GetBytes(serialize);
 
         return bytes;

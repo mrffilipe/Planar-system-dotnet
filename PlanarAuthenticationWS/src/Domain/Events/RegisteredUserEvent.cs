@@ -16,7 +16,8 @@ public class RegisteredUserEvent : IEvent
         )
     {
         UserAccountId = userAccountid;
-        UserName = userName;
+        //UserName = userName;
+        UserName = email;
         Email = email;
     }
 }

@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddHttpContextAccessor()
+    .AddAuthenticationConfig()
     .AddAdapters()
     .AddEventHandlers()
     .AddRabbitMQ()

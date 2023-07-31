@@ -25,11 +25,11 @@ public class UserAccountService : IUserAccountService
     {
         try
         {
-            var userEventMap = _mapper.Map<RegisteredUserEvent>(user);
+            var resultUser = await _userAccountRepository.RegisterUser(user);
 
-            await _userAccountRepository.RegisterUser(user);
+            var userEventMap = _mapper.Map<RegisteredUserEvent>(resultUser);
 
-            //_registeredUserEventProducer.PublishEvent(userEventMap);
+            _registeredUserEventProducer.PublishEvent(userEventMap);
         }
         catch (Exception ex) { throw; }
     }

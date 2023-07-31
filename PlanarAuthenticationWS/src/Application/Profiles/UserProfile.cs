@@ -10,7 +10,7 @@ public class UserProfile : Profile
         CreateMap<RegisteredUserEvent, User>()
             .ConstructUsing(s => new User(
                 s.UserAccountId,
-                s.UserName,
+                s.UserName, // verififcar username
                 s.Email
                 )
             );
@@ -20,6 +20,24 @@ public class UserProfile : Profile
                 s.UserAccountId,
                 s.UserName,
                 s.Email
+                )
+            );
+
+        CreateMap<SignInUserDTO, SignInUser>()
+            .ConstructUsing(s => new SignInUser(
+                s.UserName,
+                s.Password,
+                s.IsPersistent,
+                false
+                )
+            );
+
+        CreateMap<SignInUserResult, SignInUserResultDTO>()
+            .ConstructUsing(s => new SignInUserResultDTO(
+                s.UserName,
+                s.IsPersistent,
+                s.SignInResult,
+                s.Token
                 )
             );
     }

@@ -1,7 +1,7 @@
 ﻿namespace PlanarAuthenticationWS.src.Application;
 
-public record RegisterUserDTO(
-    string UserAccountId,
+public record SignInUserDTO(
     string UserName,
-    string Email
+    string Password,
+    bool IsPersistent
     );

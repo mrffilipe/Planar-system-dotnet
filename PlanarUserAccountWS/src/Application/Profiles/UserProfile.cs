@@ -26,6 +26,15 @@ public class UserProfile : Profile
                 )
             );
 
-        CreateMap<User, RegisteredUserEvent>();
+        CreateMap<User, RegisteredUserEvent>()
+            .ConstructUsing(s => new RegisteredUserEvent(
+                s.Id.ToString(),
+                s.FirstName,
+                s.LastName,
+                s.Email,
+                s.Roles,
+                s.Claims
+                )
+            );
     }
 }

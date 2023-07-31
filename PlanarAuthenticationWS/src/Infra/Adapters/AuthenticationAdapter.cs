@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using PlanarAuthenticationWS.src.Application;
 using PlanarAuthenticationWS.src.Domain;
 
@@ -14,5 +13,18 @@ public class AuthenticationAdapter : IAuthenticationAdapter
     {
         _authenticationService = authenticationService;
         _mapper = mapper;
+    }
+
+    public async Task<SignInUserResultDTO> SignIn(SignInUserDTO user)
+    {
+        try
+        {
+            var userMap = _mapper.Map<SignInUser>(user);
+
+            var result = await _authenticationService.SignIn(userMap);
+
+            return _mapper.Map<SignInUserResultDTO>(result);
+        }
+        catch (Exception ex) { throw; }
     }
 }

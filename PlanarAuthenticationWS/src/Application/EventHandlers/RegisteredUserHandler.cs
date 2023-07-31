@@ -22,12 +22,10 @@ public class RegisteredUserHandler : IEventHandler<RegisteredUserEvent>
 
             var result = await _authenticationService.RegisterUser(userMap);
 
-            if(result.Succeeded)
+            if (!result.Succeeded)
             {
                 // validar depois
             }
-
-            throw new Exception();
         }
         catch (Exception ex) { throw; }
     }

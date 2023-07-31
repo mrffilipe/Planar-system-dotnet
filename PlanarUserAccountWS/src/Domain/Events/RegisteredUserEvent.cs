@@ -4,6 +4,7 @@ namespace PlanarUserAccountWS.src.Domain;
 
 public class RegisteredUserEvent : IEvent
 {
+    public string UserAccountId { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
     public string Email { get; private set; }
@@ -14,11 +15,13 @@ public class RegisteredUserEvent : IEvent
     public string RoutingKey => "";
 
     public RegisteredUserEvent(
+       string userAccountId,
        string firstName,
        string lastName,
        string email
        )
     {
+        UserAccountId = userAccountId;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
@@ -27,12 +30,13 @@ public class RegisteredUserEvent : IEvent
     }
 
     public RegisteredUserEvent(
+        string userAccountId,
         string firstName,
         string lastName,
         string email,
         ICollection<RefUserRole> roles,
         ICollection<RefUserClaim> claims
-        ) : this(firstName, lastName, email)
+        ) : this(userAccountId, firstName, lastName, email)
     {
         Roles = roles;
         Claims = claims;
