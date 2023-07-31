@@ -15,7 +15,8 @@ public static class IdentityExtensions
         {
             options.SignIn.RequireConfirmedAccount = true;
         })
-            .AddEntityFrameworkStores<MySqlDbContext>();
+            .AddEntityFrameworkStores<MySqlDbContext>()
+            .AddDefaultTokenProviders();
 
         services.Configure<IdentityOptions>(options =>
         {

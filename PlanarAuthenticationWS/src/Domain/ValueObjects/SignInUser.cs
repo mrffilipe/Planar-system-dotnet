@@ -2,7 +2,5 @@
 
 public record SignInUser(
     string UserName,
-    string Password,
-    bool IsPersistent,
-    bool LockoutOnFailure
+    string Password
     );

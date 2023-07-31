@@ -11,17 +11,14 @@ namespace PlanarAuthenticationWS.src.Application;
 public class AuthenticationService : IAuthenticationService
 {
     private readonly UserManager<CustomIdentityUser> _userManager;
-    private readonly SignInManager<CustomIdentityUser> _signInManager;
     private readonly IMapper _mapper;
 
     public AuthenticationService(
         UserManager<CustomIdentityUser> userManager,
-        SignInManager<CustomIdentityUser> signInManager,
         IMapper mapper
         )
     {
         _userManager = userManager;
-        _signInManager = signInManager;
         _mapper = mapper;
     }
 
@@ -43,31 +40,27 @@ public class AuthenticationService : IAuthenticationService
     {
         try
         {
-            var signInResult = await _signInManager.PasswordSignInAsync(
-                user.UserName,
-                user.Password,
-                user.IsPersistent,
-                false
-                );
+            var userResult = await _userManager.FindByNameAsync(user.UserName);
 
-            //if (!signInResult.Succeeded)
-            //{
-            //    throw new Exception(); // verificar 
-            //}
+            if (userResult != null)
+            {
+                if (await _userManager.CheckPasswordAsync(userResult, user.Password))
+                {
+                    var result = new SignInUserResult(
+                        userResult.UserName,
+                        GenerateToken(userResult)
+                        );
 
-            var result = new SignInUserResult(
-                user.UserName,
-                user.IsPersistent,
-                signInResult,
-                GenerateToken(user)
-                );
+                    return result;
+                }
+            }
 
-            return result;
+            throw new Exception(); // verificar 
         }
         catch (Exception ex) { throw; }
     }
 
-    private static string GenerateToken(SignInUser user)
+    private static string GenerateToken(CustomIdentityUser user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
 

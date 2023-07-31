@@ -26,17 +26,13 @@ public class UserProfile : Profile
         CreateMap<SignInUserDTO, SignInUser>()
             .ConstructUsing(s => new SignInUser(
                 s.UserName,
-                s.Password,
-                s.IsPersistent,
-                false
+                s.Password
                 )
             );
 
         CreateMap<SignInUserResult, SignInUserResultDTO>()
             .ConstructUsing(s => new SignInUserResultDTO(
                 s.UserName,
-                s.IsPersistent,
-                s.SignInResult,
                 s.Token
                 )
             );
