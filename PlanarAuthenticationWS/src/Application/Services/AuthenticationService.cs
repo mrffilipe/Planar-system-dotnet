@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Consul;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using PlanarAuthenticationWS.src.Domain;
@@ -62,22 +63,28 @@ public class AuthenticationService : IAuthenticationService
 
     private static string GenerateToken(CustomIdentityUser user)
     {
-        var tokenHandler = new JwtSecurityTokenHandler();
+        var subject = new ClaimsIdentity(new Claim[]
+            {
+                new Claim (JwtRegisteredClaimNames.Sub, user.Id),
+                new Claim (JwtRegisteredClaimNames.UniqueName, user.UserName),
+                new Claim (ClaimTypes.Email, user.Email)
+            });
+
+        var signInCredentials = new SigningCredentials(
+            new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes("698dc19d489c4e4db73e28a713eab07b")), SecurityAlgorithms.HmacSha256Signature
+                );
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-                new Claim (ClaimTypes.Name, user.UserName),
-                //new Claim (ClaimTypes.Role, "") // verificar
-            }),
+            Subject = subject,
             Expires = DateTime.UtcNow.AddHours(2),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey
-                (
-                Encoding.UTF8.GetBytes("698dc19d489c4e4db73e28a713eab07b")), // verificar
-                SecurityAlgorithms.HmacSha256Signature
-                )
+            SigningCredentials = signInCredentials,
+            Issuer = "https://localhost:7200",
+            Audience = "TesteAudience"
         };
+
+        var tokenHandler = new JwtSecurityTokenHandler();
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
 

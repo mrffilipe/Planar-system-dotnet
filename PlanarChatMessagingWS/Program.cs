@@ -1,3 +1,4 @@
+using PlanarChatMessagingWS.src.Infra;
 using PlanarChatMessagingWS.TstChat;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddAuthenticationConfig()
     .AddSignalR();
 
 var app = builder.Build();
@@ -24,9 +26,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
-app.MapHub<ChatHub>("/Chat");
 
+app.MapHub<ChatHub>("/Chat");
 app.MapControllers();
 
 app.Run();
