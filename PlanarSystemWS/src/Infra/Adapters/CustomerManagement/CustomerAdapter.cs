@@ -16,17 +16,6 @@ public class CustomerAdapter : ICustomerAdapter
         _mapper = mapper;
     }
 
-    public async Task Save(CustomerRegistrationDTO customer)
-    {
-        try
-        {
-            var customerMap = _mapper.Map<Customer>(customer);
-
-            await _customerService.Save(customerMap);
-        }
-        catch (Exception ex) { throw; }
-    }
-
     public async Task<DetailedReplyCustomerDTO> FindById(Guid id)
     {
         try

@@ -18,18 +18,4 @@ public class SolarEnergyController : BaseController
     {
         await _solarEnergyAdapter.SaveBudgetForm(budgetForm);
     }
-
-    [HttpGet]
-    public async Task<ReplyBudgetFormDTO> FindById([FromQuery] Guid id)
-    {
-        var res = await _solarEnergyAdapter.FindBudgetFormById(id);
-
-        return res;
-    }
-
-    //[HttpPost]
-    //public async Task Update()
-    //{
-
-    //}
 }

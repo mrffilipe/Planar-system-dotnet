@@ -11,15 +11,6 @@ public class AddressService : IAddressService
         _addressRepository = addressRepository;
     }
 
-    public async Task Save(RefAddress address)
-    {
-        try
-        {
-            await _addressRepository.Save(address);
-        }
-        catch (Exception ex) { throw; }
-    }
-
     public async Task<RefAddress> FindById(Guid id)
     {
         try

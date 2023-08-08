@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -16,6 +17,23 @@ public static class AuthenticationExtensions
             })
             .AddJwtBearer(x =>
             {
+                x.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var acessToken = context.Request.Query["access_token"];
+
+                        var path = context.HttpContext.Request.Path;
+
+                        if (!string.IsNullOrEmpty(path)
+                            && path.StartsWithSegments("/hubs"))
+                        {
+                            context.Token = acessToken;
+                        }
+
+                        return Task.CompletedTask;
+                    }
+                };
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -26,6 +44,8 @@ public static class AuthenticationExtensions
                     ValidAudience = "TesteAudience"
                 };
             });
+
+        services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
 
         return services;
     }

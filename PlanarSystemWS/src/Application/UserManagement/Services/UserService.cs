@@ -20,17 +20,6 @@ public class UserService : IUserService
         catch (Exception ex) { throw; }
     }
 
-    public async Task<User> FindById(Guid id)
-    {
-        try
-        {
-            var user = await _userRepository.FindById(id);
-
-            return user;
-        }
-        catch (Exception ex) { throw; }
-    }
-
     public async Task Update(User origin, User updated)
     {
         try

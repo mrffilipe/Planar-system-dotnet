@@ -1,5 +1,4 @@
 using PlanarChatMessagingWS.src.Infra;
-using PlanarChatMessagingWS.TstChat;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +28,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<ChatHub>("/Chat");
 app.MapControllers();
+app.MapHubs();
 
 app.Run();

@@ -2,7 +2,6 @@
 
 public interface IAddressRepository
 {
-    Task Save(RefAddress address);
     Task<RefAddress> FindById(Guid id);
     Task Update(RefAddress origin, RefAddress updated);
 }

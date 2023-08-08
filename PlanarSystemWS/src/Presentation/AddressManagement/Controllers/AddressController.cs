@@ -12,24 +12,4 @@ public class AddressController : BaseController
     {
         _addressAdapter = addressAdapter;
     }
-
-    [HttpPost]
-    public async Task Save([FromBody] AddressRegistrationDTO address)
-    {
-        await _addressAdapter.Save(address);
-    }
-
-    [HttpGet]
-    public async Task<DetailedReplyAddressDTO> FindById([FromQuery] Guid id)
-    {
-        var res = await _addressAdapter.FindById(id);
-
-        return res;
-    }
-
-    //[HttpPost]
-    //public async Task Update()
-    //{
-
-    //}
 }

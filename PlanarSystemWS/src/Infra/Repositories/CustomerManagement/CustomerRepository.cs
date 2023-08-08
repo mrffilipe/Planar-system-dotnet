@@ -13,17 +13,6 @@ public class CustomerRepository : ICustomerRepository
         _context = context;
     }
 
-    public async Task Save(Customer customer)
-    {
-        try
-        {
-            await _context.Customers.AddAsync(customer);
-
-            await _context.SaveChangesAsync();
-        }
-        catch (Exception ex) { throw; }
-    }
-
     public async Task<Customer> FindById(Guid id)
     {
         try

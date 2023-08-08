@@ -12,15 +12,6 @@ public class CustomerService : ICustomerService
         _customerRepository = customerRepository;
     }
 
-    public async Task Save(Customer customer)
-    {
-        try
-        {
-            await _customerRepository.Save(customer);
-        }
-        catch (Exception ex) { throw; }
-    }
-
     public async Task<Customer> FindById(Guid id)
     {
         try

@@ -15,17 +15,6 @@ namespace PlanarSystemWS.src.Infra.Adapters.AddressManagement
             _mapper = mapper;
         }
 
-        public async Task Save(AddressRegistrationDTO address)
-        {
-            try
-            {
-                var addressMap = _mapper.Map<RefAddress>(address);
-
-                await _addressService.Save(addressMap);
-            }
-            catch (Exception ex) { throw; }
-        }
-
         public async Task<DetailedReplyAddressDTO> FindById(Guid id)
         {
             try
