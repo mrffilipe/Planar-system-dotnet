@@ -16,10 +16,11 @@ public class SolarEnergyService : ISolarEnergyService
         try
         {
             // obter o vendedor
-
-            
+            budgetForm.SetSeller(new Guid("08db97e1-513f-48ec-8976-65e2eca0a4c4"));
 
             await _solarEnergyRepository.SaveBudgetForm(budgetForm);
+
+
         }
         catch (Exception ex) { throw; }
     }

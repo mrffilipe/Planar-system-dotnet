@@ -13,11 +13,14 @@ public class UserMap : BaseEntityMap<User>
 
         builder.ToTable("users");
 
-        builder.Property(x => x.UserName)
-            .HasColumnName("username");
+        builder.Property(x => x.UserAccountId)
+            .HasColumnName("user_account_id");
 
-        builder.Property(x => x.Email)
-            .HasColumnName("email");
+        builder.Property(x => x.FirstName)
+            .HasColumnName("first_name");
+
+        builder.Property(x => x.LastName)
+            .HasColumnName("last_name");
 
         builder.HasOne(e => e.Seller)
             .WithOne(e => e.User)

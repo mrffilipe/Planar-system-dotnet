@@ -5,17 +5,28 @@ namespace PlanarSystemWS.src.Domain.UserManagement;
 
 public class User : BaseEntity
 {
-    public string UserName { get; private set; }
-    public string Email { get; private set; }
+    public string UserAccountId { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public Seller? Seller { get; private set; }
 
     private User()
     {
     }
 
-    public User(string userName, string email)
+    public User(string firstName, string lastName)
     {
-        UserName = userName;
-        Email = email;
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
+    public User(
+        string userAccountId,
+        string firstName,
+        string lastName
+        ) : this(firstName, lastName)
+    {
+        UserAccountId = userAccountId;
+        Seller = new Seller(this, 5);
     }
 }

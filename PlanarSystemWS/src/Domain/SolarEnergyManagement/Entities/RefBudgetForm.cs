@@ -39,4 +39,9 @@ public class RefBudgetForm : BaseEntity
     {
         if (consumerUnit != null) ConsumerUnits.Add(consumerUnit);
     }
+
+    public void SetSeller(Guid sellerId)
+    {
+        SellerId = sellerId;
+    }
 }

@@ -1,12 +1,28 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
+﻿using AutoMapper;
+using PlanarSystemWS.src.Domain.Shared;
 using PlanarSystemWS.src.Domain.UserManagement;
 
 namespace PlanarSystemWS.src.Application.UserManagement;
 
 public class RegisteredUserHandler : IEventHandler<RegisteredUserEvent>
 {
-    public Task HandleEvent(RegisteredUserEvent @event)
+    private readonly IUserService _userService;
+    private readonly IMapper _mapper;
+
+    public RegisteredUserHandler(IUserService userService, IMapper mapper)
     {
-        throw new NotImplementedException();
+        _userService = userService;
+        _mapper = mapper;
+    }
+
+    public async Task HandleEvent(RegisteredUserEvent @event)
+    {
+        try
+        {
+            var userMap = _mapper.Map<User>(@event);
+
+            await _userService.Register(userMap);
+        }
+        catch (Exception ex) { throw; }
     }
 }

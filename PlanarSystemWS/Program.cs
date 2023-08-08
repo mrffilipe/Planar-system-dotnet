@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddConsul()
+    .AddRabbitMQ()
     .AddEventHandlers()
     .AddDbContexts()
     .AddAdapters()
