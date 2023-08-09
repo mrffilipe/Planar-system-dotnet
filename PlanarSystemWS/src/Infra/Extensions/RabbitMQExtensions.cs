@@ -1,6 +1,6 @@
-﻿using PlanarSystemWS.src.Domain.UserManagement;
+﻿using PlanarSalesWS.src.Domain;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public static class RabbitMQExtensions
 {

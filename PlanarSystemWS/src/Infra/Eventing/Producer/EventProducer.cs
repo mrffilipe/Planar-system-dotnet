@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using PlanarSystemWS.src.Domain.Shared;
+using PlanarSalesWS.src.Domain;
 using RabbitMQ.Client;
 using System.Text;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
-public class EventProducer<TEvent> where TEvent : BaseEvent
+public class EventProducer<TEvent> where TEvent : IEvent
 {
     private readonly IConnection _connection;
 

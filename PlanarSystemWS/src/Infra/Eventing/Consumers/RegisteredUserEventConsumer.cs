@@ -1,6 +1,6 @@
-﻿using PlanarSystemWS.src.Domain.Shared;
+﻿using PlanarSalesWS.src.Domain;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public class RegisteredUserEventConsumer<TEvent> : EventConsumer<TEvent> where TEvent : IEvent
 {

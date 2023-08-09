@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
-using PlanarSystemWS.src.Domain.Shared;
+using PlanarSalesWS.src.Domain;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public abstract class EventConsumer<TEvent> : BackgroundService where TEvent : IEvent
 {

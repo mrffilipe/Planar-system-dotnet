@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public static class DbContextExtensions
 {
-    private const string MYSQL_CONNECTION = "Server=localhost;Database=planar-system-db;Uid=root;Pwd=root;";
+    private const string MYSQL_CONNECTION = "Server=localhost;Database=planar-sales-db;Uid=root;Pwd=root;";
 
     public static IServiceCollection AddDbContexts(this IServiceCollection services)
     {

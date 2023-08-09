@@ -1,4 +1,4 @@
-using PlanarSystemWS.src.Infra;
+using PlanarSalesWS.src.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 

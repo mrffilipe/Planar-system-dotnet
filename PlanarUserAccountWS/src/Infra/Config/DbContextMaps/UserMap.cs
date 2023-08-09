@@ -12,6 +12,9 @@ public class UserMap : BaseEntityMap<User>
 
         builder.ToTable("users");
 
+        builder.HasIndex(x=>x.Email)
+            .IsUnique();
+
         builder.Property(x => x.FirstName)
             .HasColumnName("first_name");
 

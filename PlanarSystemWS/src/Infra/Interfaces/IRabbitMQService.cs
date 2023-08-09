@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public interface IRabbitMQService
 {

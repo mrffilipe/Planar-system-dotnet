@@ -1,8 +1,7 @@
-﻿using PlanarSystemWS.src.Application.UserManagement;
-using PlanarSystemWS.src.Domain.Shared;
-using PlanarSystemWS.src.Domain.UserManagement;
+﻿using PlanarSalesWS.src.Application;
+using PlanarSalesWS.src.Domain;
 
-namespace PlanarSystemWS.src.Infra;
+namespace PlanarSalesWS.src.Infra;
 
 public static class EventHandlerExtensions
 {
