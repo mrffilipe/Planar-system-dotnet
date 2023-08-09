@@ -10,11 +10,6 @@ public class CustomIdentityUserMap : IdentityUserMap<CustomIdentityUser>
     {
         base.Configure(builder);
 
-        //builder.HasKey(x => x.Id);
-
-        //builder.Property(x => x.Id)
-        //    .ValueGeneratedOnAdd();
-
         builder.HasIndex(x => x.UserAccountId)
             .HasDatabaseName("UserAccountIdIndex")
             .IsUnique();

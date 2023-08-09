@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Consul;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using PlanarAuthenticationWS.src.Domain;

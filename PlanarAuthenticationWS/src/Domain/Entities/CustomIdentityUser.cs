@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
 
 namespace PlanarAuthenticationWS.src.Domain;
 
@@ -7,9 +6,9 @@ public class CustomIdentityUser : IdentityUser<Guid>
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public Guid UserAccountId { get; protected set; }
-    public DateTime CreatedOn { get; protected set; }
-    public DateTime UpdatedOn { get; protected set; }
+    public Guid UserAccountId { get; private set; }
+    public DateTime CreatedOn { get; private set; }
+    public DateTime UpdatedOn { get; private set; }
 
     public CustomIdentityUser(
             Guid userAccountId,
