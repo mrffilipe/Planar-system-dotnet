@@ -3,18 +3,18 @@ using PlanarSalesWS.src.Domain;
 
 namespace PlanarSalesWS.src.Application;
 
-public class RegisteredUserHandler : IEventHandler<RegisteredUserEvent>
+public class MinimumUserCreatedEventHandler : IEventHandler<MinimumUserCreatedEvent>
 {
     private readonly ISalesService _saleService;
     private readonly IMapper _mapper;
 
-    public RegisteredUserHandler(ISalesService saleService, IMapper mapper)
+    public MinimumUserCreatedEventHandler(ISalesService saleService, IMapper mapper)
     {
         _saleService = saleService;
         _mapper = mapper;
     }
 
-    public async Task HandleEvent(RegisteredUserEvent @event)
+    public async Task HandleEvent(MinimumUserCreatedEvent @event)
     {
         try
         {

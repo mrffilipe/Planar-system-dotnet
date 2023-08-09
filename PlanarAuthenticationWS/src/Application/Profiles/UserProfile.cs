@@ -7,10 +7,11 @@ public class UserProfile : Profile
 {
     public UserProfile()
     {
-        CreateMap<RegisteredUserEvent, User>()
+        CreateMap<DetailedUserCreatedEvent, User>()
             .ConstructUsing(s => new User(
                 s.UserAccountId,
-                s.UserName, // verififcar username
+                s.FirstName,
+                s.LastName,
                 s.Email
                 )
             );
@@ -18,7 +19,8 @@ public class UserProfile : Profile
         CreateMap<User, CustomIdentityUser>()
             .ConstructUsing(s => new CustomIdentityUser(
                 s.UserAccountId,
-                s.UserName,
+                s.FirstName,
+                s.LastName,
                 s.Email
                 )
             );

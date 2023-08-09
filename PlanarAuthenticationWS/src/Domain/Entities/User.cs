@@ -2,17 +2,20 @@
 
 public class User : BaseEntity
 {
-    public string UserName { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public string Email { get; private set; }
 
     public User(
-        string userAccountid,
-        string userName,
+        Guid userAccountId,
+        string firstName,
+        string lastName,
         string email
         )
     {
-        UserAccountId = userAccountid;
-        UserName = userName;
+        UserAccountId = userAccountId;
+        FirstName = firstName;
+        LastName = lastName;
         Email = email;
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace PlanarAuthenticationWS.src.Domain;
 
-public interface IEntity
+public interface IEntity<TKey>
 {
-    string Id { get; }
-    public string UserAccountId { get; }
+    TKey Id { get; }
+    TKey UserAccountId { get; }
     DateTime CreatedOn { get; }
     DateTime UpdatedOn { get; }
 }

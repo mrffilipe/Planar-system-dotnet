@@ -7,7 +7,7 @@ public class SellerProfile : Profile
 {
     public SellerProfile()
     {
-        CreateMap<RegisteredUserEvent, Seller>()
+        CreateMap<MinimumUserCreatedEvent, Seller>()
             .ConstructUsing(s => new Seller(
                 s.UserAccountId,
                 s.FirstName,

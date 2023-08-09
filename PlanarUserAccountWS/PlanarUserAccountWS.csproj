@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\Application\EventHandlers\" />
     <Folder Include="src\Domain\Enums\" />
     <Folder Include="src\Presentation\Filters\" />
   </ItemGroup>

@@ -8,17 +8,20 @@ public class UserAccountService : IUserAccountService
 {
     private readonly IUserAccountRepository _userAccountRepository;
     private readonly IMapper _mapper;
-    private readonly EventProducer<RegisteredUserEvent> _registeredUserEventProducer;
+    private readonly EventProducer<MinimumUserCreatedEvent> _minimumUserEventProducer;
+    private readonly EventProducer<DetailedUserCreatedEvent> _detailedUserEventProducer;
 
     public UserAccountService(
         IUserAccountRepository userAccountRepository,
         IMapper mapper,
-        EventProducer<RegisteredUserEvent> registeredUserEventProducer
+        EventProducer<MinimumUserCreatedEvent> minimumUserEventProducer,
+        EventProducer<DetailedUserCreatedEvent> detailedUserEventProducer
         )
     {
         _userAccountRepository = userAccountRepository;
         _mapper = mapper;
-        _registeredUserEventProducer = registeredUserEventProducer;
+        _minimumUserEventProducer = minimumUserEventProducer;
+        _detailedUserEventProducer = detailedUserEventProducer;
     }
 
     public async Task RegisterUser(User user)
@@ -27,9 +30,11 @@ public class UserAccountService : IUserAccountService
         {
             var resultUser = await _userAccountRepository.RegisterUser(user);
 
-            var userEventMap = _mapper.Map<RegisteredUserEvent>(resultUser);
+            var minimumUserEventMap = _mapper.Map<MinimumUserCreatedEvent>(resultUser);
+            _minimumUserEventProducer.PublishEvent(minimumUserEventMap);
 
-            _registeredUserEventProducer.PublishEvent(userEventMap);
+            var detailedUserEventMap = _mapper.Map<DetailedUserCreatedEvent>(resultUser);
+            _detailedUserEventProducer.PublishEvent(detailedUserEventMap);
         }
         catch (Exception ex) { throw; }
     }

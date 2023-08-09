@@ -18,38 +18,41 @@ public class EventProducer<TEvent> where TEvent : IEvent
     {
         using (var channel = _connection.CreateModel())
         {
-            channel.ExchangeDeclare(
-                    exchange: @event.Exchange,
-                    type: "fanout",
+            foreach (var config in @event.Configurations)
+            {
+                channel.ExchangeDeclare(
+                    exchange: config.Exchange,
+                    type: "topic",
                     durable: true,
                     autoDelete: false,
                     arguments: null
                 );
 
-            channel.QueueDeclare(
-                    queue: @event.Queue,
-                    durable: true,
-                    exclusive: false,
-                    autoDelete: false,
-                    arguments: null
-                );
+                channel.QueueDeclare(
+                        queue: config.Queue,
+                        durable: true,
+                        exclusive: false,
+                        autoDelete: false,
+                        arguments: null
+                    );
 
-            channel.QueueBind(
-                    queue: @event.Queue,
-                    exchange: @event.Exchange,
-                    routingKey: @event.RoutingKey,
-                    arguments: null
-                );
+                channel.QueueBind(
+                        queue: config.Queue,
+                        exchange: config.Exchange,
+                        routingKey: config.RoutingKey,
+                        arguments: null
+                    );
 
-            var props = channel.CreateBasicProperties();
-            props.DeliveryMode = 2;
+                var props = channel.CreateBasicProperties();
+                props.DeliveryMode = 2;
 
-            channel.BasicPublish(
-                    exchange: @event.Exchange,
-                    routingKey: @event.RoutingKey,
-                    basicProperties: props,
-                    body: GetSerializationBytes(@event)
-                );
+                channel.BasicPublish(
+                        exchange: config.Exchange,
+                        routingKey: config.RoutingKey,
+                        basicProperties: props,
+                        body: GetSerializationBytes(@event)
+                    );
+            }
 
             channel.Close();
         }

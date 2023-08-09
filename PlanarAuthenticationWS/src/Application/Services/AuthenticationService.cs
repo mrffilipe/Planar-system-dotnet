@@ -65,7 +65,7 @@ public class AuthenticationService : IAuthenticationService
     {
         var subject = new ClaimsIdentity(new Claim[]
             {
-                new Claim (JwtRegisteredClaimNames.Sub, user.Id),
+                new Claim (JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim (JwtRegisteredClaimNames.UniqueName, user.UserName),
                 new Claim (ClaimTypes.Email, user.Email)
             });

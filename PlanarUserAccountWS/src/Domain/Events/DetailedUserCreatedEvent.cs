@@ -2,7 +2,7 @@
 
 namespace PlanarUserAccountWS.src.Domain;
 
-public class RegisteredUserEvent : IEvent
+public class DetailedUserCreatedEvent : IEvent
 {
     public string UserAccountId { get; private set; }
     public string FirstName { get; private set; }
@@ -10,11 +10,12 @@ public class RegisteredUserEvent : IEvent
     public string Email { get; private set; }
     public ICollection<RefUserRole> Roles { get; private set; }
     public ICollection<RefUserClaim> Claims { get; private set; }
-    public string Queue => "new-registered-user";
-    public string Exchange => "ex";
-    public string RoutingKey => "";
+    public ICollection<EventConfiguration> Configurations => new Collection<EventConfiguration>()
+    {
+        new EventConfiguration("user-events_auth_service", "user-events", "user.detailed-user-created")
+    };
 
-    public RegisteredUserEvent(
+    public DetailedUserCreatedEvent(
        string userAccountId,
        string firstName,
        string lastName,
@@ -29,7 +30,7 @@ public class RegisteredUserEvent : IEvent
         Claims = new Collection<RefUserClaim>();
     }
 
-    public RegisteredUserEvent(
+    public DetailedUserCreatedEvent(
         string userAccountId,
         string firstName,
         string lastName,

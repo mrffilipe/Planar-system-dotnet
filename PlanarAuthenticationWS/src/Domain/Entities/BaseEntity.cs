@@ -1,9 +1,9 @@
 ﻿namespace PlanarAuthenticationWS.src.Domain;
 
-public abstract class BaseEntity : IEntity
+public abstract class BaseEntity : IEntity<Guid>
 {
-    public string Id { get; protected set; } = "";
-    public string UserAccountId { get; protected set; } = "";
+    public Guid Id { get; protected set; }
+    public Guid UserAccountId { get; protected set; }
     public DateTime CreatedOn { get; protected set; }
     public DateTime UpdatedOn { get; protected set; }
 }

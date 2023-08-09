@@ -7,7 +7,7 @@ public static class EventHandlerExtensions
 {
     public static IServiceCollection AddEventHandlers(this IServiceCollection services)
     {
-        services.AddScoped<IEventHandler<RegisteredUserEvent>, RegisteredUserHandler>();
+        services.AddScoped<IEventHandler<MinimumUserCreatedEvent>, MinimumUserCreatedEventHandler>();
 
         return services;
     }

@@ -26,8 +26,17 @@ public class UserProfile : Profile
                 )
             );
 
-        CreateMap<User, RegisteredUserEvent>()
-            .ConstructUsing(s => new RegisteredUserEvent(
+        CreateMap<User, MinimumUserCreatedEvent>()
+            .ConstructUsing(s => new MinimumUserCreatedEvent(
+                s.Id.ToString(),
+                s.FirstName,
+                s.LastName,
+                s.Email
+                )
+            );
+
+        CreateMap<User, DetailedUserCreatedEvent>()
+            .ConstructUsing(s => new DetailedUserCreatedEvent(
                 s.Id.ToString(),
                 s.FirstName,
                 s.LastName,

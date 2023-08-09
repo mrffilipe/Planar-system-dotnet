@@ -18,15 +18,56 @@ public class EventProducer<TEvent> where TEvent : IEvent
     {
         using (var channel = _connection.CreateModel())
         {
-            var message = JsonConvert.SerializeObject(@event);
-            var body = Encoding.UTF8.GetBytes(message);
-
-            channel.BasicPublish(
-                    exchange: @event.Exchange,
-                    routingKey: @event.RoutingKey,
-                    basicProperties: null,
-                    body: body
+            foreach (var config in @event.Configurations)
+            {
+                channel.ExchangeDeclare(
+                    exchange: config.Exchange,
+                    type: "fanout",
+                    durable: true,
+                    autoDelete: false,
+                    arguments: null
                 );
+
+                channel.QueueDeclare(
+                        queue: config.Queue,
+                        durable: true,
+                        exclusive: false,
+                        autoDelete: false,
+                        arguments: null
+                    );
+
+                channel.QueueBind(
+                        queue: config.Queue,
+                        exchange: config.Exchange,
+                        routingKey: config.RoutingKey,
+                        arguments: null
+                    );
+
+                var props = channel.CreateBasicProperties();
+                props.DeliveryMode = 2;
+
+                channel.BasicPublish(
+                        exchange: config.Exchange,
+                        routingKey: config.RoutingKey,
+                        basicProperties: props,
+                        body: GetSerializationBytes(@event)
+                    );
+            }
+
+            channel.Close();
         }
+    }
+
+    private static Byte[] GetSerializationBytes(TEvent @event)
+    {
+        var settings = new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        };
+
+        var serialize = JsonConvert.SerializeObject(@event, settings);
+        var bytes = Encoding.UTF8.GetBytes(serialize);
+
+        return bytes;
     }
 }

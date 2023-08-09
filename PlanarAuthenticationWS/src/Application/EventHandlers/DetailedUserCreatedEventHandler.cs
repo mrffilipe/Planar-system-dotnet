@@ -3,18 +3,18 @@ using PlanarAuthenticationWS.src.Domain;
 
 namespace PlanarAuthenticationWS.src.Application;
 
-public class RegisteredUserHandler : IEventHandler<RegisteredUserEvent>
+public class DetailedUserCreatedEventHandler : IEventHandler<DetailedUserCreatedEvent>
 {
     private readonly IAuthenticationService _authenticationService;
     private readonly IMapper _mapper;
 
-    public RegisteredUserHandler(IAuthenticationService authenticationService, IMapper mapper)
+    public DetailedUserCreatedEventHandler(IAuthenticationService authenticationService, IMapper mapper)
     {
         _authenticationService = authenticationService;
         _mapper = mapper;
     }
 
-    public async Task HandleEvent(RegisteredUserEvent @event)
+    public async Task HandleEvent(DetailedUserCreatedEvent @event)
     {
         try
         {
