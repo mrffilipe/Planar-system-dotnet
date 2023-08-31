@@ -2,5 +2,6 @@
 
 public record SignInUserResultDTO(
     string UserName,
-    string Token
+    string Token,
+    bool Authenticated
     );

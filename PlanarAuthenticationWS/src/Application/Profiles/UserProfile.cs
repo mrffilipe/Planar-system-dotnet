@@ -35,7 +35,8 @@ public class UserProfile : Profile
         CreateMap<SignInUserResult, SignInUserResultDTO>()
             .ConstructUsing(s => new SignInUserResultDTO(
                 s.UserName,
-                s.Token
+                s.Token,
+                s.Authenticated
                 )
             );
     }

@@ -48,7 +48,8 @@ public class AuthenticationService : IAuthenticationService
                 {
                     var result = new SignInUserResult(
                         userResult.UserName,
-                        GenerateToken(userResult)
+                        GenerateToken(userResult),
+                        true
                         );
 
                     return result;
